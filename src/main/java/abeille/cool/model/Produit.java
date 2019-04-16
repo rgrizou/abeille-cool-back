@@ -105,6 +105,30 @@ public class Produit {
 		this.unite = unite;
 	}
 
+	public Fournisseur getFournisseur() {
+		return fournisseur;
+	}
+
+	public void setFournisseur(Fournisseur fournisseur) {
+		this.fournisseur = fournisseur;
+	}
+
+	public List<CommandeFournisseur> getCommandeFournisseurs() {
+		return commandeFournisseurs;
+	}
+
+	public void setCommandeFournisseurs(List<CommandeFournisseur> commandeFournisseurs) {
+		this.commandeFournisseurs = commandeFournisseurs;
+	}
+
+	public List<ProduitCatProd> getProduitCatProds() {
+		return ProduitCatProds;
+	}
+
+	public void setProduitCatProds(List<ProduitCatProd> produitCatProds) {
+		ProduitCatProds = produitCatProds;
+	}
+
 	
 
 }

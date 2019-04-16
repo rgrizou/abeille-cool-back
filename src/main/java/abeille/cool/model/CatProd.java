@@ -54,6 +54,14 @@ public class CatProd {
 		this.nom = nom;
 	}
 
+	public List<ProduitCatProd> getProduitCatProds() {
+		return ProduitCatProds;
+	}
+
+	public void setProduitCatProds(List<ProduitCatProd> produitCatProds) {
+		ProduitCatProds = produitCatProds;
+	}
+
 	
 	
 	

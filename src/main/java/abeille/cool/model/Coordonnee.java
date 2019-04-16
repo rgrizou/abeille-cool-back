@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.persistence.Version;
@@ -50,9 +52,10 @@ public class Coordonnee {
 	@JsonView(ViewCommon.class)
 	private String pays;
 	@JsonView(ViewCommon.class)
+	@ManyToOne
+	@JoinColumn(name="client_id")
 	private Client client;
 	@OneToMany(mappedBy = "coordonnee")
-	@JsonView(ViewCommon.class)
 	private List<CommandeClient> commandeClients = new ArrayList<CommandeClient>();
 	
 	public Coordonnee() {
