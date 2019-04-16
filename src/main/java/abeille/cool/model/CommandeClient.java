@@ -1,6 +1,8 @@
 package abeille.cool.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,8 +42,8 @@ public class CommandeClient {
 	private Client client;
 	@OneToOne
 	private Facturation facturation;
-	@OneToMany(mappedby="commandeClient")
-	private Array<LigneCommande> lignesCommande;
+	@OneToMany(mappedBy="commandeClient")
+	private List<LigneCommande> lignesCommande = new ArrayList<LigneCommande>();
 	public long getId() {
 		return id;
 	}
