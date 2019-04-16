@@ -63,4 +63,12 @@ public class CatArt {
 		this.qte = qte;
 	}
 
+	public List<ArticleCatArt> getArticleCatArt() {
+		return articleCatArt;
+	}
+
+	public void setArticleCatArt(List<ArticleCatArt> articleCatArt) {
+		this.articleCatArt = articleCatArt;
+	}
+
 }
