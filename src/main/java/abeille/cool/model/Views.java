@@ -32,5 +32,12 @@ public class Views {
 	
 	public static class ViewClientEvenement extends ViewCommon {}
 	
+	public static class ViewProduit extends ViewCommon {}
+	
+	public static class ViewProduitCatProd extends ViewCommon {}
+	
+	public static class ViewCatProd extends ViewCommon {}
+	
+	
 	public static class ViewFacturationWithCommandeCLient extends ViewFacturation {}
 }
