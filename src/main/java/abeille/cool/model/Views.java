@@ -5,7 +5,7 @@ public class Views {
 
 	public static class ViewCommon {}
 	
-	public static class ViewClient{}
+	public static class LigneCommande{}
 	
 	public static class ViewAvis extends ViewCommon{}
 	
