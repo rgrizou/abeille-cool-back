@@ -1,6 +1,5 @@
 package abeille.cool.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,7 +21,27 @@ public class ArticleCatArt {
 	@JsonView(ViewCommon.class)
 	private int version;
 	@ManyToOne
-	@JoinColumn(name="article_id")
+	@JoinColumn(name = "catArt_id")
+	private CatArt catArt;
+
+	public CatArt getCatArt() {
+		return catArt;
+	}
+
+	public void setCatArt(CatArt catArt) {
+		this.catArt = catArt;
+	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "article_id")
 	private Article article;
 
 	public ArticleCatArt() {
