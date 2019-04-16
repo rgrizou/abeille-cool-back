@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
@@ -25,7 +24,7 @@ import abeille.cool.model.Views.ViewCommon;
 @Entity
 public class CommandeClient {
 	@Id
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(ViewCommon.class)
 	private long id;
 	@Version
 	private int version;
@@ -48,27 +47,45 @@ public class CommandeClient {
 	private Facturation facturation;
 	@OneToMany(mappedBy="commandeClient")
 	private List<LigneCommande> lignesCommande = new ArrayList<LigneCommande>();
+	
+	public CommandeClient() {
+		super();
+	}
+	
+	public CommandeClient(Date date, Statut statut) {
+		super();
+		this.date = date;
+		this.statut = statut;
+	}
+	
 	public long getId() {
 		return id;
 	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	public int getVersion() {
 		return version;
 	}
+	
 	public void setVersion(int version) {
 		this.version = version;
 	}
+	
 	public Date getDate() {
 		return date;
 	}
+	
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
 	public Statut getStatut() {
 		return statut;
 	}
+	
 	public void setStatut(Statut statut) {
 		this.statut = statut;
 	}
@@ -76,32 +93,33 @@ public class CommandeClient {
 	public Coordonnee getCoordonnee() {
 		return coordonnee;
 	}
+	
 	public void setCoordonnee(Coordonnee coordonnee) {
 		this.coordonnee = coordonnee;
 	}
+	
 	public Client getClient() {
 		return client;
 	}
+	
 	public void setClient(Client client) {
 		this.client = client;
 	}
+	
 	public Facturation getFacturation() {
 		return facturation;
 	}
+	
 	public void setFacturation(Facturation facturation) {
 		this.facturation = facturation;
 	}
+	
 	public List<LigneCommande> getLignesCommande() {
 		return lignesCommande;
 	}
+	
 	public void setLignesCommande(List<LigneCommande> lignesCommande) {
 		this.lignesCommande = lignesCommande;
 	}
-	public CommandeClient(long id, int version, Date date, Statut statut) {
-		super();
-		this.id = id;
-		this.version = version;
-		this.date = date;
-		this.statut = statut;
-	}
+
 }
