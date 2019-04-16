@@ -9,6 +9,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -55,18 +57,14 @@ public class Article {
 	@Column
 	@JsonView(ViewCommon.class)
 	private boolean archive;
-//	@Column
-//	@JsonView(ViewCommon.class)
-//	private List<Avis> avis = new ArrayList<Avis>();
-//	@Column
-//	@JsonView(ViewCommon.class)
-//	private List<LigneCommande> ligneCommande = new ArrayList<LigneCommande>();
-//	@Column
-//	@JsonView(ViewCommon.class)
-//	private List<CatArt> catArt = new ArrayList<CatArt>();
-//	@Column
-//	@JsonView(ViewCommon.class)
-//	private List<ArticleCatArt> articleCatArt = new ArrayList<ArticleCatArt>();
+	@OneToMany(mappedBy="article")
+	private List<Avis> avis = new ArrayList<Avis>();
+	@OneToMany(mappedBy="article")
+	private List<LigneCommande> ligneCommande = new ArrayList<LigneCommande>();
+	@OneToOne(mappedBy="article")
+	private CatArt catArt;
+	@OneToMany(mappedBy="article")
+	private List<ArticleCatArt> articleCatArt = new ArrayList<ArticleCatArt>();
 
 	public Article() {
 		super();
