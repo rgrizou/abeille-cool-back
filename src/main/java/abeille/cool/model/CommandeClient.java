@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,6 +25,7 @@ import abeille.cool.model.Views.ViewCommon;
 @Entity
 public class CommandeClient {
 	@Id
+	@GeneratedValue
 	@JsonView(ViewCommon.class)
 	private long id;
 	@Version

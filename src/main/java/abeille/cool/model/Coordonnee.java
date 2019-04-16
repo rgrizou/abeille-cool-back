@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -61,7 +60,6 @@ public class Coordonnee {
 	public Coordonnee() {
 		super();
 	}
-	
 	
 	public Coordonnee(String libelle, String nom, String prenom, Long numTel, String mail, String rue,
 			String codePostal, String ville, String pays) {

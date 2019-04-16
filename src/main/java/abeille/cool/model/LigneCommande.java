@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -43,13 +42,6 @@ public class LigneCommande {
 		this.qte = qte;
 	}
 
-//	public LigneCommande(Integer qte, Article article, CommandeClient commandeClient) {
-//		super();
-//		this.qte = qte;
-//		this.article = article;
-//		this.commandeClient = commandeClient;
-//	}
-
 	public Long getId() {
 		return id;
 	}
@@ -74,21 +66,20 @@ public class LigneCommande {
 		this.qte = qte;
 	}
 
-//	public Article getArticle() {
-//		return article;
-//	}
-//
-//	public void setArticle(Article article) {
-//		this.article = article;
-//	}
+	public Article getArticle() {
+		return article;
+	}
 
-//	public CommandeClient getCommandeClient() {
-//		return commandeClient;
-//	}
-//
-//	public void setCommandeClient(CommandeClient commandeClient) {
-//		this.commandeClient = commandeClient;
-//	}
-	
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+
+	public CommandeClient getCommandeClient() {
+		return commandeClient;
+	}
+
+	public void setCommandeClient(CommandeClient commandeClient) {
+		this.commandeClient = commandeClient;
+	}
 	
 }
