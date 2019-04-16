@@ -3,19 +3,55 @@ package abeille.cool.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import abeille.cool.model.Views.ViewCommon;
+
+@Entity
 public class Coordonnee {
+	@Id
+	@GeneratedValue
+	@JsonView(ViewCommon.class)
 	private Long id;
+	@Version
+	@JsonView(ViewCommon.class)
 	private Long version;
+	@Column(length = 100)
+	@JsonView(ViewCommon.class)
 	private String libelle;
+	@Column(length = 100)
+	@JsonView(ViewCommon.class)
 	private String nom; 
+	@Column(length = 100)
+	@JsonView(ViewCommon.class)
 	private String prenom;
 	private Long numTel;
+	@Column(length = 100)
+	@JsonView(ViewCommon.class)
 	private String mail;
+	@Column(length = 100)
+	@JsonView(ViewCommon.class)
 	private String rue;
+	@Column(length = 100)
+	@JsonView(ViewCommon.class)
 	private String codePostal;
+	@Column(length = 100)
+	@JsonView(ViewCommon.class)
 	private String ville;
+	@Column(length = 100)
+	@JsonView(ViewCommon.class)
 	private String pays;
+	@JsonView(ViewCommon.class)
 	private Client client;
+	@Transient
+	@JsonView(ViewCommon.class)
 	private List<CommandeClient> commandeClients = new ArrayList<CommandeClient>();
 	
 	public Coordonnee() {
@@ -131,7 +167,6 @@ public class Coordonnee {
 	public List<CommandeClient> getCommandeClients() {
 		return commandeClients;
 	}
-
 
 	public void setCommandeClients(List<CommandeClient> commandeClients) {
 		this.commandeClients = commandeClients;

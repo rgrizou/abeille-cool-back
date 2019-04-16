@@ -13,10 +13,10 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.formation.model.Views.ViewCommon;
+import abeille.cool.model.Views.ViewCommon;
+
 
 @Entity
-@Table(name = "avis")
 public class Avis {
 	@Id
 	@GeneratedValue

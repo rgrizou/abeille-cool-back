@@ -1,10 +1,29 @@
 package abeille.cool.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import abeille.cool.model.Views.ViewCommon;
+
+@Entity
 public class LigneCommande {
+	@Id
+	@GeneratedValue
+	@JsonView(ViewCommon.class)
 	private Long id;
+	@Version
+	@JsonView(ViewCommon.class)
 	private Long version;
+	@JsonView(ViewCommon.class)
 	private Integer qte;
+	@JsonView(ViewCommon.class)
 	private Article article;
+	@JsonView(ViewCommon.class)
 	private CommandeClient commandeClient;
 	
 	public LigneCommande() {
