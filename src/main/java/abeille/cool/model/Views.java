@@ -27,4 +27,6 @@ public class Views {
 	public static class ViewEvenement extends ViewCommon {}
 	
 	public static class ViewClientEvenement extends ViewCommon {}
+	
+	public static class ViewFacturationWithCommandeCLient extends ViewFacturation {}
 }

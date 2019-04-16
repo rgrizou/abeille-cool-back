@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -16,6 +17,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.Views.ViewCommon;
+import abeille.cool.model.Views.ViewFacturationWithCommandeCLient;
+
 
 @Entity
 public class Facturation {
@@ -34,8 +37,9 @@ public class Facturation {
 	@Column(length=100)
 	@JsonView(ViewCommon.class)
 	private String ref;
-//	@OneToOne()
-//	private CommandeClient commandeClient;
+	@OneToOne(mappedBy = "facturation")
+	@JsonView(ViewFacturationWithCommandeCLient.class)
+	private CommandeClient commandeClient;
 	
 	
 	public Facturation() {
@@ -81,14 +85,14 @@ public class Facturation {
 	}
 
 
-//	public CommandeClient getCommandeClient() {
-//		return commandeClient;
-//	}
-//
-//
-//	public void setCommandeClient(CommandeClient commandeClient) {
-//		this.commandeClient = commandeClient;
-//	}
+	public CommandeClient getCommandeClient() {
+		return commandeClient;
+	}
+
+
+	public void setCommandeClient(CommandeClient commandeClient) {
+		this.commandeClient = commandeClient;
+	}
 	
 
 	

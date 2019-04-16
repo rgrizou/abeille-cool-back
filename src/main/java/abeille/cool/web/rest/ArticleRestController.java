@@ -20,7 +20,7 @@ import abeille.cool.model.Views;
 import abeille.cool.repository.IArticleRepository;
 
 @RestController
-@RequestMapping("/api/article")
+@RequestMapping("/article")
 @CrossOrigin("*")
 public class ArticleRestController {
 	@Autowired
