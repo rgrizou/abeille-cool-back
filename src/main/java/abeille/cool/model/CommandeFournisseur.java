@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
@@ -38,10 +39,10 @@ public class CommandeFournisseur {
 //	@JoinColumn(name="administrateur_id")
 //	@JsonView(Views.ViewCommon.class)
 //	private Administrateur administrateur;
-//	@ManyToOne()
-//	@JoinColumn(name="produit_id")
-//	@JsonView(Views.ViewCommon.class)
-//	private Produit produit;
+	@ManyToOne
+	@JoinColumn(name="produit_id")
+	@JsonView(Views.ViewCommon.class)
+	private Produit produit;
 	
 	
 

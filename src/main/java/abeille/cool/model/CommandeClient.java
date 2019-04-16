@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import abeille.cool.model.Views.ViewCommon;
 
 @Entity
-@Table(name = "commande_client") 
 public class CommandeClient {
 	@Id
 	@JsonView(Views.ViewCommon.class)
