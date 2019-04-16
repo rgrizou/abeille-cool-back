@@ -7,35 +7,43 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
-import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.formation.model.Views.ViewCommon;
+import com.fasterxml.jackson.annotation.JsonView;
 
 
 @Entity
 public class Produit {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private String description;
+	@JsonView(Views.ViewCommon.class)
 	private Integer qte;
+	@JsonView(Views.ViewCommon.class)
 	private Float prixUnitaireHT;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private Unite unite;
-//	@Transient
-//	private Fournisseur fournisseur;
-//	@Transient
-//	private List<CommandeFournisseur> commandeFournisseurs = new ArrayList<CommandeFournisseur>();
-	@OneToMany(mappedBy = "produit", fetch= FetchType.EAGER)
+	@ManyToOne
+	@JoinColumn (name ="fournisseur_id")
+	private Fournisseur fournisseur;
+	@OneToMany(mappedBy = "produit")
+	private List<CommandeFournisseur> commandeFournisseurs = new ArrayList<CommandeFournisseur>();
+	@OneToMany(mappedBy = "produit")
 	private List<ProduitCatProd> ProduitCatProds = new ArrayList<ProduitCatProd>();
 	
 	
