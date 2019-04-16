@@ -8,6 +8,10 @@ public class Views {
 	
 	public static class ViewArticle extends ViewCommon {}
 	
+	public static class ViewArticleCatArt extends ViewCommon {}
+	
+	public static class ViewCatArt extends ViewCommon {}
+	
 	public static class ViewCommandeClient extends ViewCommon {}
 	
 	public static class ViewClient extends ViewCommon {}
