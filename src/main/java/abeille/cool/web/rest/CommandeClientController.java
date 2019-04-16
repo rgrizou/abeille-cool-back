@@ -22,7 +22,7 @@ import abeille.cool.repository.ICommandeClient;
 
 
 @RestController
-@RequestMapping("/api/commandeclient")
+@RequestMapping("/commandeclient")
 @CrossOrigin("*") // autoriser l'accès depuis n'importe quelle adresse
 public class CommandeClientController {
 	@Autowired
