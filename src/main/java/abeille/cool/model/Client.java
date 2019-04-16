@@ -5,24 +5,37 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import abeille.cool.model.Views;
+
 //import java.util.List;
 
 @Entity
 public class Client {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
 	private int version;
-	
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
+	@JsonView(Views.ViewCommon.class)
 	private boolean vip;
+	@JsonView(Views.ViewCommon.class)
 	private Integer fidelite;
+//	@OneToMany(mappedBy="")
 //	private List<Avis> avis = ArrayList<Avis>;
+//	@OneToMany(mappedBy="")
 //	private List<CommandeClient> comclients = ArrayList<CommandeClient>;
+//	@OneToMany(mappedBy="")
 //	private List<Coordonnee> coordonnees = ArrayList<Coordonnee>;
+//	@OneToMany(mappedBy="")
 //	private List<ClientEvenement> clievents = ArrayList<ClientEvenement>;
+//	@OneToOne(mappedBy="")
 //	private Utilisateur utilisateur;
 	
 	public Client() {
