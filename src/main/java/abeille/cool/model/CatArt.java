@@ -1,9 +1,13 @@
 package abeille.cool.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -22,10 +26,8 @@ public class CatArt {
 	@Column
 	@JsonView(ViewCommon.class)
 	private Integer qte;
-
-//	@Column
-//	@JsonView(ViewCommon.class)
-//	private Article article;
+	@OneToMany(mappedBy="catArt")
+	private List<ArticleCatArt> articleCatArt = new ArrayList<ArticleCatArt>();
 
 	public CatArt() {
 		super();
@@ -59,6 +61,14 @@ public class CatArt {
 
 	public void setQte(Integer qte) {
 		this.qte = qte;
+	}
+
+	public List<ArticleCatArt> getArticleCatArt() {
+		return articleCatArt;
+	}
+
+	public void setArticleCatArt(List<ArticleCatArt> articleCatArt) {
+		this.articleCatArt = articleCatArt;
 	}
 
 }

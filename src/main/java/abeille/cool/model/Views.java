@@ -8,6 +8,10 @@ public class Views {
 	
 	public static class ViewArticle extends ViewCommon {}
 	
+	public static class ViewArticleCatArt extends ViewCommon {}
+	
+	public static class ViewCatArt extends ViewCommon {}
+	
 	public static class ViewCommandeClient extends ViewCommon {}
 	
 	public static class ViewClient extends ViewCommon {}
@@ -27,6 +31,13 @@ public class Views {
 	public static class ViewEvenement extends ViewCommon {}
 	
 	public static class ViewClientEvenement extends ViewCommon {}
+	
+	public static class ViewProduit extends ViewCommon {}
+	
+	public static class ViewProduitCatProd extends ViewCommon {}
+	
+	public static class ViewCatProd extends ViewCommon {}
+	
 	
 	public static class ViewFacturationWithCommandeCLient extends ViewFacturation {}
 }

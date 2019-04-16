@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import abeille.cool.model.CatProd;
+import abeille.cool.model.Views;
 import abeille.cool.repository.ICatProdRepository;
 
 
@@ -27,16 +30,19 @@ public class CatProdRestController {
 			private ICatProdRepository CatProdRepo;
 
 			@GetMapping("")
+			@JsonView(Views.ViewCatProd.class)
 			public List<CatProd> list() {
 				return CatProdRepo.findAll();
 			}
 
 			@GetMapping("/{id}")
+			@JsonView(Views.ViewCatProd.class)
 			public CatProd find(@PathVariable Long id) {
 				return CatProdRepo.findById(id).get();
 			}
 
 			@PostMapping("")
+			@JsonView(Views.ViewCatProd.class)
 			public CatProd create(@RequestBody CatProd CatProd) {
 				CatProd = CatProdRepo.save(CatProd);
 
@@ -44,6 +50,7 @@ public class CatProdRestController {
 			}
 			
 			@PutMapping("/{id}")
+			@JsonView(Views.ViewCatProd.class)
 			public CatProd update(@RequestBody CatProd CatProd, @PathVariable Long id) {
 				CatProd = CatProdRepo.save(CatProd);
 
@@ -51,6 +58,7 @@ public class CatProdRestController {
 			}
 			
 			@DeleteMapping("/{id}")
+			@JsonView(Views.ViewCatProd.class)
 			public void remove(@PathVariable Long id) {
 				CatProdRepo.deleteById(id);
 			}

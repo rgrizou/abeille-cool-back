@@ -9,6 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -55,18 +56,12 @@ public class Article {
 	@Column
 	@JsonView(ViewCommon.class)
 	private boolean archive;
-//	@Column
-//	@JsonView(ViewCommon.class)
-//	private List<Avis> avis = new ArrayList<Avis>();
-//	@Column
-//	@JsonView(ViewCommon.class)
-//	private List<LigneCommande> ligneCommande = new ArrayList<LigneCommande>();
-//	@Column
-//	@JsonView(ViewCommon.class)
-//	private List<CatArt> catArt = new ArrayList<CatArt>();
-//	@Column
-//	@JsonView(ViewCommon.class)
-//	private List<ArticleCatArt> articleCatArt = new ArrayList<ArticleCatArt>();
+	@OneToMany(mappedBy = "article")
+	private List<Avis> avis = new ArrayList<Avis>();
+	@OneToMany(mappedBy = "article")
+	private List<LigneCommande> ligneCommande = new ArrayList<LigneCommande>();
+	@OneToMany(mappedBy = "article")
+	private List<ArticleCatArt> articleCatArt = new ArrayList<ArticleCatArt>();
 
 	public Article() {
 		super();
@@ -165,6 +160,38 @@ public class Article {
 
 	public void setArchive(boolean archive) {
 		this.archive = archive;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public List<Avis> getAvis() {
+		return avis;
+	}
+
+	public void setAvis(List<Avis> avis) {
+		this.avis = avis;
+	}
+
+	public List<LigneCommande> getLigneCommande() {
+		return ligneCommande;
+	}
+
+	public void setLigneCommande(List<LigneCommande> ligneCommande) {
+		this.ligneCommande = ligneCommande;
+	}
+
+	public List<ArticleCatArt> getArticleCatArt() {
+		return articleCatArt;
+	}
+
+	public void setArticleCatArt(List<ArticleCatArt> articleCatArt) {
+		this.articleCatArt = articleCatArt;
 	}
 
 }
