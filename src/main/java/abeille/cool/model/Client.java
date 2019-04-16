@@ -1,5 +1,101 @@
 package abeille.cool.model;
 
-public class Client {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import abeille.cool.model.Views;
+
+//import java.util.List;
+
+@Entity
+public class Client {
+	@Id
+	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
+	private Long id;
+	@Version
+	private int version;
+	@JsonView(Views.ViewCommon.class)
+	private String nom;
+	@JsonView(Views.ViewCommon.class)
+	private String prenom;
+	@JsonView(Views.ViewCommon.class)
+	private boolean vip;
+	@JsonView(Views.ViewCommon.class)
+	private Integer fidelite;
+//	@OneToMany(mappedBy="")
+//	private List<Avis> avis = ArrayList<Avis>;
+//	@OneToMany(mappedBy="")
+//	private List<CommandeClient> comclients = ArrayList<CommandeClient>;
+//	@OneToMany(mappedBy="")
+//	private List<Coordonnee> coordonnees = ArrayList<Coordonnee>;
+//	@OneToMany(mappedBy="")
+//	private List<ClientEvenement> clievents = ArrayList<ClientEvenement>;
+//	@OneToOne(mappedBy="")
+//	private Utilisateur utilisateur;
+	
+	public Client() {
+		super();
+	}
+
+	public Client(String nom, String prenom, boolean vip, Integer fidelite) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.vip = vip;
+		this.fidelite = fidelite;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public boolean isVip() {
+		return vip;
+	}
+
+	public void setVip(boolean vip) {
+		this.vip = vip;
+	}
+
+	public Integer getFidelite() {
+		return fidelite;
+	}
+
+	public void setFidelite(Integer fidelite) {
+		this.fidelite = fidelite;
+	}
+	
 }

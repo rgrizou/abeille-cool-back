@@ -15,49 +15,50 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import abeille.cool.model.Client;
+import abeille.cool.model.Fournisseur;
 import abeille.cool.model.Views;
-import abeille.cool.repository.IClientRepository;
+import abeille.cool.repository.IFournisseurRepository;
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/api/fournisseur")
 @CrossOrigin("*")
-public class ClientRestController {
-	@Autowired
-	private IClientRepository clientRepo;
+public class FournisseurRestController {
 
+	@Autowired
+	private IFournisseurRepository fournisseurRepo;
+	
 	@GetMapping("")
-	@JsonView(Views.ViewClient.class)
-	public List<Client> list() {
-		return clientRepo.findAll();
+	@JsonView(Views.ViewFournisseur.class)
+	public List<Fournisseur> list() {
+		return fournisseurRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client find(@PathVariable Long id) {
-		return clientRepo.findById(id).get();
+	@JsonView(Views.ViewFournisseur.class)
+	public Fournisseur find(@PathVariable Long id) {
+		return fournisseurRepo.findById(id).get();
 	}
 
 	@PostMapping("")
-	@JsonView(Views.ViewClient.class)
-	public Client create(@RequestBody Client client) {
-		client = clientRepo.save(client);
+	@JsonView(Views.ViewFournisseur.class)
+	public Fournisseur create(@RequestBody Fournisseur fournisseur) {
+		fournisseur = fournisseurRepo.save(fournisseur);
 
-		return client;
+		return fournisseur;
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client update(@RequestBody Client client,@PathVariable Long id) {
-		client = clientRepo.save(client);
+	@JsonView(Views.ViewFournisseur.class)
+	public Fournisseur update(@RequestBody Fournisseur fournisseur,@PathVariable Long id) {
+		fournisseur = fournisseurRepo.save(fournisseur);
 
-		return client;
+		return fournisseur;
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
+	@JsonView(Views.ViewFournisseur.class)
 	public void remove(@PathVariable Long id) {
-		clientRepo.deleteById(id);
+		fournisseurRepo.deleteById(id);
 	}
-
+	
 }
