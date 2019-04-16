@@ -48,4 +48,5 @@ public class ClientEvenement {
 	public void setEvent(Evenement event) {
 		this.event = event;
 	}
+	
 }

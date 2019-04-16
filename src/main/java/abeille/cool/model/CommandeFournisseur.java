@@ -37,11 +37,9 @@ public class CommandeFournisseur {
 	
 //	@ManyToOne
 //	@JoinColumn(name="administrateur_id")
-//	@JsonView(Views.ViewCommon.class)
 //	private Administrateur administrateur;
 	@ManyToOne
 	@JoinColumn(name="produit_id")
-	@JsonView(Views.ViewCommon.class)
 	private Produit produit;
 	
 	
@@ -70,14 +68,14 @@ public class CommandeFournisseur {
 //	}
 //
 //
-//	public Produit getProduit() {
-//		return produit;
-//	}
-//
-//
-//	public void setProduit(Produit produit) {
-//		this.produit = produit;
-//	}
+	public Produit getProduit() {
+		return produit;
+	}
+
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
 
 
 	public Long getId() {

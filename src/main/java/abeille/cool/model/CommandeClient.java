@@ -38,12 +38,13 @@ public class CommandeClient {
 	@JsonView(ViewCommon.class)
 	private Statut statut;
 	@ManyToOne
-	@JoinColumn(name="coordonee_id")
-	private Coordonnee coordonee;
+	@JoinColumn(name="coordonnee_id")
+	private Coordonnee coordonnee;
 	@ManyToOne
 	@JoinColumn(name="client_id")
 	private Client client;
 	@OneToOne
+	@JoinColumn(name="facturation_id")
 	private Facturation facturation;
 	@OneToMany(mappedBy="commandeClient")
 	private List<LigneCommande> lignesCommande = new ArrayList<LigneCommande>();
@@ -71,11 +72,12 @@ public class CommandeClient {
 	public void setStatut(Statut statut) {
 		this.statut = statut;
 	}
-	public Coordonnee getCoordonee() {
-		return coordonee;
+	
+	public Coordonnee getCoordonnee() {
+		return coordonnee;
 	}
-	public void setCoordonee(Coordonnee coordonee) {
-		this.coordonee = coordonee;
+	public void setCoordonnee(Coordonnee coordonnee) {
+		this.coordonnee = coordonnee;
 	}
 	public Client getClient() {
 		return client;
@@ -83,18 +85,18 @@ public class CommandeClient {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-//	public Facturation getFacturation() {
-//		return facturation;
-//	}
-//	public void setFacturation(Facturation facturation) {
-//		this.facturation = facturation;
-//	}
-//	public Array<LigneCommande> getLignesCommande() {
-//		return lignesCommande;
-//	}
-//	public void setLignesCommande(Array<LigneCommande> lignesCommande) {
-//		this.lignesCommande = lignesCommande;
-//	}
+	public Facturation getFacturation() {
+		return facturation;
+	}
+	public void setFacturation(Facturation facturation) {
+		this.facturation = facturation;
+	}
+	public List<LigneCommande> getLignesCommande() {
+		return lignesCommande;
+	}
+	public void setLignesCommande(List<LigneCommande> lignesCommande) {
+		this.lignesCommande = lignesCommande;
+	}
 	public CommandeClient(long id, int version, Date date, Statut statut) {
 		super();
 		this.id = id;

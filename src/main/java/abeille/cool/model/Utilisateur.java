@@ -31,17 +31,14 @@ public class Utilisateur {
 	@Column(length = 20)
 	@JsonView(Views.ViewCommon.class)
 	private TypeUtilisateur type;
-	
 	@OneToOne
-	@JsonView(Views.ViewCommon.class)
 	@JoinColumn(name="client_id")
 	private Client client;
+	@JsonView(Views.ViewCommon.class)
 	@OneToOne
 	@JoinColumn(name="fournisseur_id")
-	@JsonView(Views.ViewCommon.class)
 	private Fournisseur fournisseur;
 //	@OneToOne()
-//	@JsonView(Views.ViewCommon.class)
 //	@JoinColumn(name="administrateur_id")
 //	private Administrateur administrateur;
 
@@ -72,22 +69,22 @@ public class Utilisateur {
 		this.type = type;
 	}
 
-//	public Client getClient() {
-//		return client;
-//	}
-//
-//	public void setClient(Client client) {
-//		this.client = client;
-//	}
-//
-//	public Fournisseur getFournisseur() {
-//		return fournisseur;
-//	}
-//
-//	public void setFournisseur(Fournisseur fournisseur) {
-//		this.fournisseur = fournisseur;
-//	}
-//
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Fournisseur getFournisseur() {
+		return fournisseur;
+	}
+
+	public void setFournisseur(Fournisseur fournisseur) {
+		this.fournisseur = fournisseur;
+	}
+
 //	public Administrateur getAdministrateur() {
 //		return administrateur;
 //	}
