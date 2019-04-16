@@ -24,7 +24,7 @@ import abeille.cool.model.Views.ViewCommon;
 @Entity
 public class CommandeClient {
 	@Id
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(ViewCommon.class)
 	private long id;
 	@Version
 	private int version;
