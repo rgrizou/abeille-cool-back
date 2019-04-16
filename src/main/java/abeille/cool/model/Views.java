@@ -6,7 +6,7 @@ public class Views {
 	public static class ViewCommon {}
 	
 	public static class LigneCommande{}
-	public static class ViewArticle {}
+	public static class ViewArticle extends ViewCommon{}
 	
 	public static class ViewClient{}
 	
