@@ -38,9 +38,9 @@ public class Utilisateur {
 	@OneToOne
 	@JoinColumn(name="fournisseur_id")
 	private Fournisseur fournisseur;
-//	@OneToOne()
-//	@JoinColumn(name="administrateur_id")
-//	private Administrateur administrateur;
+	@OneToOne()
+	@JoinColumn(name="administrateur_id")
+	private Administrateur administrateur;
 
 	public Utilisateur() {
 		super();
@@ -85,13 +85,13 @@ public class Utilisateur {
 		this.fournisseur = fournisseur;
 	}
 
-//	public Administrateur getAdministrateur() {
-//		return administrateur;
-//	}
-//
-//	public void setAdministrateur(Administrateur administrateur) {
-//		this.administrateur = administrateur;
-//	}
+	public Administrateur getAdministrateur() {
+		return administrateur;
+	}
+
+	public void setAdministrateur(Administrateur administrateur) {
+		this.administrateur = administrateur;
+	}
 
 	public Long getId() {
 		return id;
