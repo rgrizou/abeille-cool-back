@@ -10,7 +10,6 @@ import javax.persistence.Version;
  
 @Entity
 public class Actualite {
-
 	@Id
 	@GeneratedValue
 	private Long id; 
@@ -29,9 +28,8 @@ public class Actualite {
 		super();
 	}
 
-	public Actualite(Long id, String titre, String descriptif, Date date, String photoUrl, Boolean active) {
+	public Actualite(String titre, String descriptif, Date date, String photoUrl, Boolean active) {
 		super();
-		this.id = id;
 		this.titre = titre;
 		this.descriptif = descriptif;
 		this.date = date;
@@ -85,6 +83,14 @@ public class Actualite {
 
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	} 
 	
 }
