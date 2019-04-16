@@ -69,22 +69,22 @@ public class Utilisateur {
 		this.type = type;
 	}
 
-//	public Client getClient() {
-//		return client;
-//	}
-//
-//	public void setClient(Client client) {
-//		this.client = client;
-//	}
-//
-//	public Fournisseur getFournisseur() {
-//		return fournisseur;
-//	}
-//
-//	public void setFournisseur(Fournisseur fournisseur) {
-//		this.fournisseur = fournisseur;
-//	}
-//
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Fournisseur getFournisseur() {
+		return fournisseur;
+	}
+
+	public void setFournisseur(Fournisseur fournisseur) {
+		this.fournisseur = fournisseur;
+	}
+
 //	public Administrateur getAdministrateur() {
 //		return administrateur;
 //	}

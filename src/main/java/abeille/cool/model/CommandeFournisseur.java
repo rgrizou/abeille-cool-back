@@ -68,14 +68,14 @@ public class CommandeFournisseur {
 //	}
 //
 //
-//	public Produit getProduit() {
-//		return produit;
-//	}
-//
-//
-//	public void setProduit(Produit produit) {
-//		this.produit = produit;
-//	}
+	public Produit getProduit() {
+		return produit;
+	}
+
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
 
 
 	public Long getId() {
