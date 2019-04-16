@@ -13,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.Views;
 
-//import java.util.List;
 
 @Entity
 public class Client {
@@ -108,6 +107,38 @@ public class Client {
 
 	public void setClievents(List<ClientEvenement> clievents) {
 		this.clievents = clievents;
+	}
+
+	public List<Avis> getAvis() {
+		return avis;
+	}
+
+	public void setAvis(List<Avis> avis) {
+		this.avis = avis;
+	}
+
+	public List<CommandeClient> getComclients() {
+		return comclients;
+	}
+
+	public void setComclients(List<CommandeClient> comclients) {
+		this.comclients = comclients;
+	}
+
+	public List<Coordonnee> getCoordonnees() {
+		return coordonnees;
+	}
+
+	public void setCoordonnees(List<Coordonnee> coordonnees) {
+		this.coordonnees = coordonnees;
+	}
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 	
 }
