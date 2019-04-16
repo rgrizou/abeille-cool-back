@@ -15,49 +15,49 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import abeille.cool.model.Avis;
+import abeille.cool.model.Article;
 import abeille.cool.model.Views;
-import abeille.cool.repository.IAvisRepository;
+import abeille.cool.repository.IArticleRepository;
 
 @RestController
-@RequestMapping("/avis")
+@RequestMapping("/api/article")
 @CrossOrigin("*")
-public class AvisRestController {
+public class ArticleRestController {
 	@Autowired
-	private IAvisRepository avisRepo;
+	private IArticleRepository articleRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewAvis.class)
-	public List<Avis> list() {
-		return avisRepo.findAll();
+	@JsonView(Views.ViewArticle.class)
+	public List<Article> list() {
+		return articleRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewAvis.class)
-	public Avis find(@PathVariable Long id) {
-		return avisRepo.findById(id).get();
+	@JsonView(Views.ViewArticle.class)
+	public Article find(@PathVariable Long id) {
+		return articleRepo.findById(id).get();
 	}
 
 	@PostMapping("")
-	@JsonView(Views.ViewAvis.class)
-	public Avis create(@RequestBody Avis avis) {
-		avis = avisRepo.save(avis);
+	@JsonView(Views.ViewArticle.class)
+	public Article create(@RequestBody Article article) {
+		article = articleRepo.save(article);
 
-		return avis;
+		return article;
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewAvis.class)
-	public Avis update(@RequestBody Avis avis,@PathVariable Long id) {
-		avis = avisRepo.save(avis);
+	@JsonView(Views.ViewArticle.class)
+	public Article update(@RequestBody Article article,@PathVariable Long id) {
+		article = articleRepo.save(article);
 
-		return avis;
+		return article;
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewAvis.class)
+	@JsonView(Views.ViewArticle.class)
 	public void remove(@PathVariable Long id) {
-		avisRepo.deleteById(id);
+		articleRepo.deleteById(id);
 	}
 
 }

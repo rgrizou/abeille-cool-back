@@ -16,48 +16,50 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.Client;
+import abeille.cool.model.LigneCommande;
 import abeille.cool.model.Views;
 import abeille.cool.repository.IClientRepository;
+import abeille.cool.repository.ILigneCommandeRepository;
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/client")
 @CrossOrigin("*")
 public class LigneCommandeRestController {
 	@Autowired
-	private IClientRepository clientRepo;
+	private ILigneCommandeRepository ligneCommandeRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewClient.class)
-	public List<Client> list() {
-		return clientRepo.findAll();
+	@JsonView(Views.ViewLigneCommande.class)
+	public List<LigneCommande> list() {
+		return ligneCommandeRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client find(@PathVariable Long id) {
-		return clientRepo.findById(id).get();
+	@JsonView(Views.ViewLigneCommande.class)
+	public LigneCommande find(@PathVariable Long id) {
+		return ligneCommandeRepo.findById(id).get();
 	}
 
 	@PostMapping("")
-	@JsonView(Views.ViewClient.class)
-	public Client create(@RequestBody Client client) {
-		client = clientRepo.save(client);
+	@JsonView(Views.ViewLigneCommande.class)
+	public LigneCommande create(@RequestBody LigneCommande ligneCommande) {
+		ligneCommande = ligneCommandeRepo.save(ligneCommande);
 
-		return client;
+		return ligneCommande;
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client update(@RequestBody Client client,@PathVariable Long id) {
-		client = clientRepo.save(client);
+	@JsonView(Views.ViewLigneCommande.class)
+	public LigneCommande update(@RequestBody LigneCommande ligneCommande,@PathVariable Long id) {
+		ligneCommande = ligneCommandeRepo.save(ligneCommande);
 
-		return client;
+		return ligneCommande;
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
+	@JsonView(Views.ViewLigneCommande.class)
 	public void remove(@PathVariable Long id) {
-		clientRepo.deleteById(id);
+		ligneCommandeRepo.deleteById(id);
 	}
 
 }
