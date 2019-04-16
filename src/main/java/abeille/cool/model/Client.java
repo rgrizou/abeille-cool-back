@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -38,7 +39,7 @@ public class Client {
 	private List<Coordonnee> coordonnees = new ArrayList<Coordonnee>();
 	@OneToMany(mappedBy="client")
 	private List<ClientEvenement> clievents = new ArrayList<ClientEvenement>();
-	@OneToMany(mappedBy="client")
+	@OneToOne(mappedBy="client")
 	private Utilisateur utilisateur;
 	
 	public Client() {
