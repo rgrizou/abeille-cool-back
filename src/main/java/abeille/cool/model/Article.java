@@ -66,12 +66,20 @@ public class Article {
 	public Article() {
 		super();
 	}
-
-	public Article(String nom, Float prix, Integer volume) {
+	
+	public Article(String nom, String detail, Float prix, Integer qte, String photoURL,
+			Float degreAlcool, Integer volume, String typeMiel, TypeHydromel typeHydromel, boolean archive) {
 		super();
 		this.nom = nom;
+		this.detail = detail;
 		this.prix = prix;
+		this.qte = qte;
+		this.photoURL = photoURL;
+		this.degreAlcool = degreAlcool;
 		this.volume = volume;
+		this.typeMiel = typeMiel;
+		this.typeHydromel = typeHydromel;
+		this.archive = archive;
 	}
 
 	public Long getId() {

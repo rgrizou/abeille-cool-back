@@ -19,7 +19,6 @@ public class CatProd {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
-	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
@@ -28,6 +27,11 @@ public class CatProd {
 	
 	public CatProd() {
 		super();
+	}
+
+	public CatProd(String nom) {
+		super();
+		this.nom = nom;
 	}
 
 	public Long getId() {
@@ -61,9 +65,5 @@ public class CatProd {
 	public void setProduitCatProds(List<ProduitCatProd> produitCatProds) {
 		ProduitCatProds = produitCatProds;
 	}
-
-	
-	
-	
 	
 }

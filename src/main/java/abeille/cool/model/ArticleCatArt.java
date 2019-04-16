@@ -23,7 +23,14 @@ public class ArticleCatArt {
 	@ManyToOne
 	@JoinColumn(name = "catArt_id")
 	private CatArt catArt;
+	@ManyToOne
+	@JoinColumn(name = "article_id")
+	private Article article;
 
+	public ArticleCatArt() {
+		super();
+	}
+	
 	public CatArt getCatArt() {
 		return catArt;
 	}
@@ -38,14 +45,6 @@ public class ArticleCatArt {
 
 	public void setArticle(Article article) {
 		this.article = article;
-	}
-
-	@ManyToOne
-	@JoinColumn(name = "article_id")
-	private Article article;
-
-	public ArticleCatArt() {
-		super();
 	}
 
 	public Long getId() {

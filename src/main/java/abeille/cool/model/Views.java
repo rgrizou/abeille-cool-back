@@ -4,6 +4,10 @@ public class Views {
 	
 	public static class ViewCommon {}
 	
+	public static class ViewActualite extends ViewCommon{}
+	
+	public static class ViewAdministrateur extends ViewCommon{}
+	
 	public static class ViewFacturation extends ViewCommon {}
 	
 	public static class ViewArticle extends ViewCommon {}

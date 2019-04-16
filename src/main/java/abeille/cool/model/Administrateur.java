@@ -12,31 +12,39 @@ import javax.persistence.OneToOne;
 import javax.persistence.Version;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Administrateur {
-
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id; 
 	@Version
 	private int version; 
 	@Column(name= "nom", length=30)
 	@NotEmpty(message="Le nom doit être renseigné.")
+	@JsonView(Views.ViewCommon.class)
 	private String nom; 
 	@Column(name= "prenom", length=30)
 	@NotEmpty(message="Le nom doit être renseigné.")
+	@JsonView(Views.ViewCommon.class)
 	private String prenom; 
 	@Column(name= "rue", length=30)
+	@JsonView(Views.ViewCommon.class)
 	private String rue; 
 	@Column(name= "codePostal", length=30)
+	@JsonView(Views.ViewCommon.class)
 	private String codePostal; 
 	@Column(name= "ville", length=30)
+	@JsonView(Views.ViewCommon.class)
 	private String ville; 
 	@Column(name= "pays", length=30)
+	@JsonView(Views.ViewCommon.class)
 	private String pays;
 	@OneToOne(mappedBy = "administrateur")
 	private Utilisateur utilisateur; 
-	@OneToMany(mappedBy ="administrateur") // mappé avec l'attribut dans la classe commandeFournisseur
+	@OneToMany(mappedBy ="administrateur")
 	private List<CommandeFournisseur> commandeFournisseurs= new ArrayList<CommandeFournisseur>(); 
 	
 	
@@ -44,10 +52,9 @@ public class Administrateur {
 		super();
 	}
 
-	public Administrateur(Long id, String nom, String prenom, String rue, String codePostal, String ville,
+	public Administrateur(String nom, String prenom, String rue, String codePostal, String ville,
 			String pays) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.rue = rue;
@@ -135,7 +142,5 @@ public class Administrateur {
 	public void setCommandeFournisseurs(List<CommandeFournisseur> commandeFournisseurs) {
 		this.commandeFournisseurs = commandeFournisseurs;
 	}
-
-
 
 }

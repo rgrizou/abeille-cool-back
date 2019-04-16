@@ -31,7 +31,6 @@ public class CatArt {
 
 	public CatArt() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public CatArt(Integer qte) {
