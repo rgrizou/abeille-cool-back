@@ -35,9 +35,9 @@ public class CommandeFournisseur {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 	
-//	@ManyToOne
-//	@JoinColumn(name="administrateur_id")
-//	private Administrateur administrateur;
+	@ManyToOne
+	@JoinColumn(name="administrateur_id")
+	private Administrateur administrateur;
 	@ManyToOne
 	@JoinColumn(name="produit_id")
 	private Produit produit;
@@ -132,6 +132,16 @@ public class CommandeFournisseur {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+
+	public Administrateur getAdministrateur() {
+		return administrateur;
+	}
+
+
+	public void setAdministrateur(Administrateur administrateur) {
+		this.administrateur = administrateur;
 	}
 
 
