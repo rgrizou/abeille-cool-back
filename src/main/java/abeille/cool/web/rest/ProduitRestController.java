@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import abeille.cool.model.Produit;
+import abeille.cool.model.Views;
 import abeille.cool.repository.IProduitRepository;
 
 
@@ -27,16 +30,19 @@ public class ProduitRestController {
 		private IProduitRepository ProduitRepo;
 
 		@GetMapping("")
+		@JsonView(Views.ViewProduit.class)
 		public List<Produit> list() {
 			return ProduitRepo.findAll();
 		}
 
 		@GetMapping("/{id}")
+		@JsonView(Views.ViewProduit.class)
 		public Produit find(@PathVariable Long id) {
 			return ProduitRepo.findById(id).get();
 		}
 
 		@PostMapping("")
+		@JsonView(Views.ViewProduit.class)
 		public Produit create(@RequestBody Produit produit) {
 			produit = ProduitRepo.save(produit);
 
@@ -44,6 +50,7 @@ public class ProduitRestController {
 		}
 		
 		@PutMapping("/{id}")
+		@JsonView(Views.ViewProduit.class)
 		public Produit update(@RequestBody Produit produit, @PathVariable Long id) {
 			produit = ProduitRepo.save(produit);
 
@@ -51,6 +58,7 @@ public class ProduitRestController {
 		}
 		
 		@DeleteMapping("/{id}")
+		@JsonView(Views.ViewProduit.class)
 		public void remove(@PathVariable Long id) {
 			ProduitRepo.deleteById(id);
 		}
