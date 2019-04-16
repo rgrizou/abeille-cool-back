@@ -12,4 +12,7 @@ public class Views {
 	public static class ViewLigneCommande{}
 	
 	public static class ViewCoordonnee{}
+	
+	public static class ViewFournisseur{}
+	
 }
