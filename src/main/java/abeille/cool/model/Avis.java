@@ -4,8 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
@@ -38,11 +41,13 @@ public class Avis {
 	@JsonView(ViewCommon.class)
 	private boolean site;
 	@JsonView(ViewCommon.class)
-	@Transient
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "client_id")
 	private Client client;
-//	@JsonView(ViewCommon.class)
-//	@Transient
-//	private Article article;
+	@JsonView(ViewCommon.class)
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "article_id")
+	private Article article;
 	
 	
 	public Avis() {
