@@ -1,8 +1,12 @@
 package abeille.cool.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -33,8 +37,8 @@ public class Client {
 //	private List<CommandeClient> comclients = ArrayList<CommandeClient>;
 //	@OneToMany(mappedBy="")
 //	private List<Coordonnee> coordonnees = ArrayList<Coordonnee>;
-//	@OneToMany(mappedBy="")
-//	private List<ClientEvenement> clievents = ArrayList<ClientEvenement>;
+	@OneToMany(mappedBy="client")
+	private List<ClientEvenement> clievents = new ArrayList<ClientEvenement>();
 //	@OneToOne(mappedBy="")
 //	private Utilisateur utilisateur;
 	
@@ -96,6 +100,14 @@ public class Client {
 
 	public void setFidelite(Integer fidelite) {
 		this.fidelite = fidelite;
+	}
+
+	public List<ClientEvenement> getClievents() {
+		return clievents;
+	}
+
+	public void setClievents(List<ClientEvenement> clievents) {
+		this.clievents = clievents;
 	}
 	
 }

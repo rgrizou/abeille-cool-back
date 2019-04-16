@@ -1,8 +1,11 @@
 package abeille.cool.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -11,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import abeille.cool.model.Views.ViewCommon;
 
 @Entity
+
 public class LigneCommande {
 	@Id
 	@GeneratedValue
@@ -22,8 +26,12 @@ public class LigneCommande {
 	@JsonView(ViewCommon.class)
 	private Integer qte;
 	@JsonView(ViewCommon.class)
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "article_id")
 	private Article article;
 	@JsonView(ViewCommon.class)
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "commandeClient_id")
 	private CommandeClient commandeClient;
 	
 	public LigneCommande() {
@@ -35,12 +43,12 @@ public class LigneCommande {
 		this.qte = qte;
 	}
 
-	public LigneCommande(Integer qte, Article article, CommandeClient commandeClient) {
-		super();
-		this.qte = qte;
-		this.article = article;
-		this.commandeClient = commandeClient;
-	}
+//	public LigneCommande(Integer qte, Article article, CommandeClient commandeClient) {
+//		super();
+//		this.qte = qte;
+//		this.article = article;
+//		this.commandeClient = commandeClient;
+//	}
 
 	public Long getId() {
 		return id;
@@ -66,21 +74,21 @@ public class LigneCommande {
 		this.qte = qte;
 	}
 
-	public Article getArticle() {
-		return article;
-	}
+//	public Article getArticle() {
+//		return article;
+//	}
+//
+//	public void setArticle(Article article) {
+//		this.article = article;
+//	}
 
-	public void setArticle(Article article) {
-		this.article = article;
-	}
-
-	public CommandeClient getCommandeClient() {
-		return commandeClient;
-	}
-
-	public void setCommandeClient(CommandeClient commandeClient) {
-		this.commandeClient = commandeClient;
-	}
+//	public CommandeClient getCommandeClient() {
+//		return commandeClient;
+//	}
+//
+//	public void setCommandeClient(CommandeClient commandeClient) {
+//		this.commandeClient = commandeClient;
+//	}
 	
 	
 }
