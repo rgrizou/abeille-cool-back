@@ -20,7 +20,7 @@ import abeille.cool.model.ClientEvenement;
 import abeille.cool.model.Views;
 
 @RestController
-@RequestMapping("/api/eleveFormateur")
+@RequestMapping("/clientEvenement")
 @CrossOrigin("*")
 public class ClientEvenementRestController {
 

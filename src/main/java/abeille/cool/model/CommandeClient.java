@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import abeille.cool.model.Views.ViewCommon;
 
 @Entity
-@Table(name = "commande_client") 
 public class CommandeClient {
 	@Id
 	@JsonView(Views.ViewCommon.class)
@@ -39,8 +38,69 @@ public class CommandeClient {
 	private Coordonnee coordonee;
 	@ManyToOne
 	private Client client;
-	@OneToOne
-	private Facturation facturation;
-	@OneToMany(mappedby="commandeClient")
-	private Array<LigneCommande> lignesCommande;
+//	@OneToOne
+//	private Facturation facturation;
+//	@OneToMany(mappedby="commandeClient")
+//	private Array<LigneCommande> lignesCommande;
+	
+	public CommandeClient(Date date, Statut statut, Coordonnee coordonee, Client client) {
+		super();
+		this.date = date;
+		this.statut = statut;
+		this.coordonee = coordonee;
+		this.client = client;
+	}
+	
+	public CommandeClient() {
+		super();
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Statut getStatut() {
+		return statut;
+	}
+
+	public void setStatut(Statut statut) {
+		this.statut = statut;
+	}
+
+	public Coordonnee getCoordonee() {
+		return coordonee;
+	}
+
+	public void setCoordonee(Coordonnee coordonee) {
+		this.coordonee = coordonee;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	
 }

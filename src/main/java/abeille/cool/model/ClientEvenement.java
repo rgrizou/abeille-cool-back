@@ -17,7 +17,9 @@ public class ClientEvenement {
 	@ManyToOne
 	@JoinColumn(name="client_id")
 	private Client client;
-//	private Evenement event;
+	@ManyToOne
+	@JoinColumn(name="evenement_id")
+	private Evenement event;
 	
 	public ClientEvenement() {
 		super();
@@ -37,5 +39,13 @@ public class ClientEvenement {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	public Evenement getEvent() {
+		return event;
+	}
+
+	public void setEvent(Evenement event) {
+		this.event = event;
 	}
 }
