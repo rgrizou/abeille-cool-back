@@ -3,11 +3,15 @@ package abeille.cool.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import abeille.cool.model.Views;
-//import java.util.List;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -26,10 +30,10 @@ public class Fournisseur {
 	private String statutJuridique;
 	@JsonView(Views.ViewCommon.class)
 	private String numeroTva;
-//	@OneToMany(mappedBy="")
-//	private List<Produit> produits = ArrayList<Produit>;
-//	@OneToOne(mappedBy="")
-//	private Utilisateur utilisateur;
+	@OneToMany(mappedBy="fournisseur")
+	private List<Produit> produits = new ArrayList<Produit>();
+	@OneToOne(mappedBy="fournisseur")
+	private Utilisateur utilisateur;
 	public Fournisseur() {
 		super();
 	}
