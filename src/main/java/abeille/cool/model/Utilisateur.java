@@ -32,10 +32,10 @@ public class Utilisateur {
 	@JsonView(Views.ViewCommon.class)
 	private TypeUtilisateur type;
 	
-//	@OneToOne()
-//	@JsonView(Views.ViewCommon.class)
-//	@JoinColumn(name="client_id")
-//	private Client client;
+	@OneToOne
+	@JsonView(Views.ViewCommon.class)
+	@JoinColumn(name="client_id")
+	private Client client;
 	@OneToOne
 	@JoinColumn(name="fournisseur_id")
 	@JsonView(Views.ViewCommon.class)
