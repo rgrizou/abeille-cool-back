@@ -22,7 +22,7 @@ import abeille.cool.repository.IClientRepository;
 import abeille.cool.repository.ILigneCommandeRepository;
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/client")
 @CrossOrigin("*")
 public class LigneCommandeRestController {
 	@Autowired
