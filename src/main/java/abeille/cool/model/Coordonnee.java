@@ -56,7 +56,6 @@ public class Coordonnee {
 	@JoinColumn(name="client_id")
 	private Client client;
 	@OneToMany(mappedBy = "coordonnee")
-	@JsonView(ViewCommon.class)
 	private List<CommandeClient> commandeClients = new ArrayList<CommandeClient>();
 	
 	public Coordonnee() {

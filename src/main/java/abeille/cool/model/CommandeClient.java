@@ -38,8 +38,8 @@ public class CommandeClient {
 	@JsonView(ViewCommon.class)
 	private Statut statut;
 	@ManyToOne
-	@JoinColumn(name="coordonee_id")
-	private Coordonnee coordonee;
+	@JoinColumn(name="coordonnee_id")
+	private Coordonnee coordonnee;
 	@ManyToOne
 	@JoinColumn(name="client_id")
 	private Client client;
@@ -71,11 +71,12 @@ public class CommandeClient {
 	public void setStatut(Statut statut) {
 		this.statut = statut;
 	}
-	public Coordonnee getCoordonee() {
-		return coordonee;
+	
+	public Coordonnee getCoordonnee() {
+		return coordonnee;
 	}
-	public void setCoordonee(Coordonnee coordonee) {
-		this.coordonee = coordonee;
+	public void setCoordonnee(Coordonnee coordonnee) {
+		this.coordonnee = coordonnee;
 	}
 	public Client getClient() {
 		return client;
