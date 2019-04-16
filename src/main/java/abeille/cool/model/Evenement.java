@@ -18,10 +18,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.formation.model.Views.ViewCommon;
+import abeille.cool.model.Views.ViewCommon;
+
+
 
 @Entity
-@Table(name="evenement")
 public class Evenement {
 	@Id
 	@GeneratedValue
@@ -35,7 +36,7 @@ public class Evenement {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@JsonView(ViewCommon.class)
 	private Date date;
-	@Column(name="lieu")
+	@Column(length=100)
 	@JsonView(ViewCommon.class)
 	private String lieu;
 	@Column(name="descriptif")
@@ -44,8 +45,8 @@ public class Evenement {
 	@Column(name="photoURL")
 	@JsonView(ViewCommon.class)
 	private String photoURL;
-	@Transient
-	private List<ClientEvenement> clientEvenements = new ArrayList<ClientEvenement>();
+//	@Transient
+//	private List<ClientEvenement> clientEvenements = new ArrayList<ClientEvenement>();
 	
 	
 	
