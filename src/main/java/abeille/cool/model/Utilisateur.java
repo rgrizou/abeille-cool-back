@@ -19,7 +19,6 @@ public class Utilisateur {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
-	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(length = 100)
 	@JsonView(Views.ViewCommon.class)
@@ -34,7 +33,6 @@ public class Utilisateur {
 	@OneToOne
 	@JoinColumn(name="client_id")
 	private Client client;
-	@JsonView(Views.ViewCommon.class)
 	@OneToOne
 	@JoinColumn(name="fournisseur_id")
 	private Fournisseur fournisseur;

@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.CommandeClient;
 import abeille.cool.model.Views;
-import abeille.cool.repository.ICommandeClient;
+import abeille.cool.repository.ICommandeClientRepository;
 
 
 
@@ -26,7 +26,7 @@ import abeille.cool.repository.ICommandeClient;
 @CrossOrigin("*") // autoriser l'accès depuis n'importe quelle adresse
 public class CommandeClientRestController {
 	@Autowired
-	private ICommandeClient commandeClientRepo;
+	private ICommandeClientRepository commandeClientRepo;
 
 	@GetMapping("")
 	@JsonView(Views.ViewCommandeClient.class)

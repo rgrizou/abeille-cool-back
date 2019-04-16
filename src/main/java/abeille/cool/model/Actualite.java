@@ -7,22 +7,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
  
 @Entity
 public class Actualite {
-
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id; 
 	@Version
 	private int version; 
 	@Column(name= "titre", length=350)
+	@JsonView(Views.ViewCommon.class)
 	private String titre;
 	@Column(name= "descriptif", length=6000)
+	@JsonView(Views.ViewCommon.class)
 	private String descriptif; 
 	@Column(name= "date", length=30)
+	@JsonView(Views.ViewCommon.class)
 	private Date date; 
+	@JsonView(Views.ViewCommon.class)
 	private String photoUrl; 
+	@JsonView(Views.ViewCommon.class)
 	private Boolean active;
 	
 	public Actualite() {
@@ -84,6 +91,14 @@ public class Actualite {
 
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	} 
 	
 }

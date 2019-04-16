@@ -25,7 +25,6 @@ public class Produit {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
-	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
@@ -71,36 +70,47 @@ public class Produit {
 	public int getVersion() {
 		return version;
 	}
+	
 	public void setVersion(int version) {
 		this.version = version;
 	}
+	
 	public String getNom() {
 		return nom;
 	}
+	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+	
 	public String getDescription() {
 		return description;
 	}
+	
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	public Integer getQte() {
 		return qte;
 	}
+	
 	public void setQte(Integer qte) {
 		this.qte = qte;
 	}
+	
 	public Float getPrixUnitaireHT() {
 		return prixUnitaireHT;
 	}
+	
 	public void setPrixUnitaireHT(Float prixUnitaireHT) {
 		this.prixUnitaireHT = prixUnitaireHT;
 	}
+	
 	public Unite getUnite() {
 		return unite;
 	}
+	
 	public void setUnite(Unite unite) {
 		this.unite = unite;
 	}
@@ -128,7 +138,5 @@ public class Produit {
 	public void setProduitCatProds(List<ProduitCatProd> produitCatProds) {
 		ProduitCatProds = produitCatProds;
 	}
-
-	
 
 }

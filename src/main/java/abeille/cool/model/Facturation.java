@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -47,9 +46,8 @@ public class Facturation {
 	}
 
 
-	public Facturation(Long id, Date date, String ref) {
+	public Facturation(Date date, String ref) {
 		super();
-		this.id = id;
 		this.date = date;
 		this.ref = ref;
 	}
@@ -93,7 +91,14 @@ public class Facturation {
 	public void setCommandeClient(CommandeClient commandeClient) {
 		this.commandeClient = commandeClient;
 	}
-	
 
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
 	
 }
