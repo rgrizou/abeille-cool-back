@@ -35,7 +35,7 @@ public class Coordonnee {
 	@Column(length = 100)
 	@JsonView(ViewCommon.class)
 	private String prenom;
-	private Long numTel;
+	private String numTel;
 	@Column(length = 100)
 	@JsonView(ViewCommon.class)
 	private String mail;
@@ -63,7 +63,7 @@ public class Coordonnee {
 	}
 	
 	
-	public Coordonnee(String libelle, String nom, String prenom, Long numTel, String mail, String rue,
+	public Coordonnee(String libelle, String nom, String prenom, String numTel, String mail, String rue,
 			String codePostal, String ville, String pays) {
 		super();
 		this.libelle = libelle;
@@ -78,7 +78,7 @@ public class Coordonnee {
 	}
 
 
-	public Coordonnee(String libelle, String nom, String prenom, Long numTel, String mail, String rue,
+	public Coordonnee(String libelle, String nom, String prenom, String numTel, String mail, String rue,
 			String codePostal, String ville, String pays, Client client, List<CommandeClient> commandeClients) {
 		super();
 		this.libelle = libelle;
@@ -125,12 +125,15 @@ public class Coordonnee {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Long getNumTel() {
+	
+	public String getNumTel() {
 		return numTel;
 	}
-	public void setNumTel(Long numTel) {
+
+	public void setNumTel(String numTel) {
 		this.numTel = numTel;
 	}
+
 	public String getMail() {
 		return mail;
 	}

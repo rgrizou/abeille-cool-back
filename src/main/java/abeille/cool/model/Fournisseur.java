@@ -37,10 +37,8 @@ public class Fournisseur {
 	public Fournisseur() {
 		super();
 	}
-public Fournisseur(Long id, int version, String raisonSociale, String siret, String statutJuridique, String numeroTva) {
+public Fournisseur(String raisonSociale, String siret, String statutJuridique, String numeroTva) {
 	super();
-	this.id = id;
-	this.version = version;
 	this.raisonSociale = raisonSociale;
 	this.siret = siret;
 	this.statutJuridique = statutJuridique;

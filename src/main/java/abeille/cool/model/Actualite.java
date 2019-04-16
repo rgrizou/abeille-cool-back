@@ -29,9 +29,8 @@ public class Actualite {
 		super();
 	}
 
-	public Actualite(Long id, String titre, String descriptif, Date date, String photoUrl, Boolean active) {
+	public Actualite(String titre, String descriptif, Date date, String photoUrl, Boolean active) {
 		super();
-		this.id = id;
 		this.titre = titre;
 		this.descriptif = descriptif;
 		this.date = date;

@@ -44,10 +44,9 @@ public class Administrateur {
 		super();
 	}
 
-	public Administrateur(Long id, String nom, String prenom, String rue, String codePostal, String ville,
+	public Administrateur(String nom, String prenom, String rue, String codePostal, String ville,
 			String pays) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.rue = rue;
