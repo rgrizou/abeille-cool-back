@@ -15,4 +15,8 @@ public class Views {
 	
 	public static class ViewFournisseur{}
 	
+	public static class ViewCommandeFournisseur extends ViewCommon {}
+
+	public static class ViewUtilisateur extends ViewCommon {}
+	
 }
