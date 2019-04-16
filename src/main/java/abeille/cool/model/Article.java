@@ -1,5 +1,8 @@
 package abeille.cool.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -52,6 +55,18 @@ public class Article {
 	@Column
 	@JsonView(ViewCommon.class)
 	private boolean archive;
+//	@Column
+//	@JsonView(ViewCommon.class)
+//	private List<Avis> avis = new ArrayList<Avis>();
+//	@Column
+//	@JsonView(ViewCommon.class)
+//	private List<LigneCommande> ligneCommande = new ArrayList<LigneCommande>();
+//	@Column
+//	@JsonView(ViewCommon.class)
+//	private List<CatArt> catArt = new ArrayList<CatArt>();
+//	@Column
+//	@JsonView(ViewCommon.class)
+//	private List<ArticleCatArt> articleCatArt = new ArrayList<ArticleCatArt>();
 
 	public Article() {
 		super();
