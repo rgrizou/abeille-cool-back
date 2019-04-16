@@ -34,12 +34,6 @@ public class CatProd {
 		this.nom = nom;
 	}
 
-
-	public CatProd(String nom) {
-		super();
-		this.nom = nom;
-	}
-
 	public Long getId() {
 		return id;
 	}
