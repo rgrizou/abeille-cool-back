@@ -61,8 +61,6 @@ public class Article {
 	private List<Avis> avis = new ArrayList<Avis>();
 	@OneToMany(mappedBy="article")
 	private List<LigneCommande> ligneCommande = new ArrayList<LigneCommande>();
-	@OneToOne(mappedBy="article")
-	private CatArt catArt;
 	@OneToMany(mappedBy="article")
 	private List<ArticleCatArt> articleCatArt = new ArrayList<ArticleCatArt>();
 

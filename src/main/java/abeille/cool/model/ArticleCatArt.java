@@ -22,6 +22,9 @@ public class ArticleCatArt {
 	@JsonView(ViewCommon.class)
 	private int version;
 	@ManyToOne
+	@JoinColumn(name="catArt_id")
+	private CatArt catArt;
+	@ManyToOne
 	@JoinColumn(name="article_id")
 	private Article article;
 
