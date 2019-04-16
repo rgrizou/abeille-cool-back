@@ -12,25 +12,35 @@ import javax.persistence.Version;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class CommandeFournisseur {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private Integer qte;
+	@JsonView(Views.ViewCommon.class)
 	private Float prixTotal;
+	@JsonView(Views.ViewCommon.class)
 	private Integer tauxTVA;
+	@JsonView(Views.ViewCommon.class)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 	
 //	@ManyToOne
 //	@JoinColumn(name="administrateur_id")
+//	@JsonView(Views.ViewCommon.class)
 //	private Administrateur administrateur;
 //	@ManyToOne()
 //	@JoinColumn(name="produit_id")
+//	@JsonView(Views.ViewCommon.class)
 //	private Produit produit;
 	
 	
