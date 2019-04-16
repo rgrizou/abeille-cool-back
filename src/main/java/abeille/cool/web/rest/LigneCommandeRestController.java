@@ -15,10 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import abeille.cool.model.Client;
 import abeille.cool.model.LigneCommande;
 import abeille.cool.model.Views;
-import abeille.cool.repository.IClientRepository;
 import abeille.cool.repository.ILigneCommandeRepository;
 
 @RestController

@@ -19,10 +19,8 @@ import abeille.cool.model.CommandeClient;
 import abeille.cool.model.Views;
 import abeille.cool.repository.ICommandeClientRepository;
 
-
-
 @RestController
-@RequestMapping("/commandeclient")
+@RequestMapping("/commandeClient")
 @CrossOrigin("*") // autoriser l'accès depuis n'importe quelle adresse
 public class CommandeClientRestController {
 	@Autowired
