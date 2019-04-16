@@ -8,26 +8,36 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Utilisateur {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String mail;
 	@Column(length = 50)
+	@JsonView(Views.ViewCommon.class)
 	private String mdp;
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20)
+	@JsonView(Views.ViewCommon.class)
 	private TypeUtilisateur type;
 	
 //	@OneToOne()
+//	@JsonView(Views.ViewCommon.class)
 //	private Client client;
 //	@OneToOne()
+//	@JsonView(Views.ViewCommon.class)
 //	private Fournisseur fournisseur;
 //	@OneToOne()
+//	@JsonView(Views.ViewCommon.class)
 //	private Administrateur administrateur;
 
 	public Utilisateur() {
