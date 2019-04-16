@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import abeille.cool.model.Views.ViewCommon;
 
 @Entity
-@Table(name = "commande_client") 
 public class CommandeClient {
 	@Id
 	@JsonView(Views.ViewCommon.class)
@@ -39,10 +38,10 @@ public class CommandeClient {
 	private Coordonnee coordonee;
 	@ManyToOne
 	private Client client;
-	@OneToOne
-	private Facturation facturation;
-	@OneToMany(mappedby="commandeClient")
-	private Array<LigneCommande> lignesCommande;
+//	@OneToOne
+//	private Facturation facturation;
+//	@OneToMany(mappedby="commandeClient")
+//	private Array<LigneCommande> lignesCommande;
 	public long getId() {
 		return id;
 	}
@@ -79,18 +78,18 @@ public class CommandeClient {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Facturation getFacturation() {
-		return facturation;
-	}
-	public void setFacturation(Facturation facturation) {
-		this.facturation = facturation;
-	}
-	public Array<LigneCommande> getLignesCommande() {
-		return lignesCommande;
-	}
-	public void setLignesCommande(Array<LigneCommande> lignesCommande) {
-		this.lignesCommande = lignesCommande;
-	}
+//	public Facturation getFacturation() {
+//		return facturation;
+//	}
+//	public void setFacturation(Facturation facturation) {
+//		this.facturation = facturation;
+//	}
+//	public Array<LigneCommande> getLignesCommande() {
+//		return lignesCommande;
+//	}
+//	public void setLignesCommande(Array<LigneCommande> lignesCommande) {
+//		this.lignesCommande = lignesCommande;
+//	}
 	public CommandeClient(long id, int version, Date date, Statut statut) {
 		super();
 		this.id = id;

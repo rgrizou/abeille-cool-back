@@ -20,7 +20,7 @@ import abeille.cool.model.Views;
 import abeille.cool.repository.IFournisseurRepository;
 
 @RestController
-@RequestMapping("/api/fournisseur")
+@RequestMapping("/fournisseur")
 @CrossOrigin("*")
 public class FournisseurRestController {
 

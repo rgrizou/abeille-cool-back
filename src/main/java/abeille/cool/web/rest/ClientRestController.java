@@ -20,7 +20,7 @@ import abeille.cool.model.Views;
 import abeille.cool.repository.IClientRepository;
 
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/client")
 @CrossOrigin("*")
 public class ClientRestController {
 	@Autowired
