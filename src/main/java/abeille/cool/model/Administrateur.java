@@ -1,5 +1,8 @@
 package abeille.cool.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +39,7 @@ public class Administrateur {
 	@OneToOne(mappedBy = "administrateur")
 	private Utilisateur utilisateur; 
 	@OneToMany(mappedBy ="administrateur") // mappé avec l'attribut dans la classe commandeFournisseur
-	private CommandeFournisseur commandeFournisseur; 
+	private List<CommandeFournisseur> commandeFournisseurs= new ArrayList<CommandeFournisseur>(); 
 	
 	
 	public Administrateur() {
@@ -127,12 +130,14 @@ public class Administrateur {
 		this.utilisateur = utilisateur;
 	}
 
-	public CommandeFournisseur getCommandeFournisseur() {
-		return commandeFournisseur;
+	public List<CommandeFournisseur> getCommandeFournisseurs() {
+		return commandeFournisseurs;
 	}
 
-	public void setCommandeFournisseur(CommandeFournisseur commandeFournisseur) {
-		this.commandeFournisseur = commandeFournisseur;
-	} 
+	public void setCommandeFournisseurs(List<CommandeFournisseur> commandeFournisseurs) {
+		this.commandeFournisseurs = commandeFournisseurs;
+	}
+
+
 
 }
