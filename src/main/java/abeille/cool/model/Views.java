@@ -4,4 +4,6 @@ public class Views {
 	public static class ViewCommon {}
 	
 	public static class ViewClient{}
+	
+	public static class ViewClientEvenement{}
 }
