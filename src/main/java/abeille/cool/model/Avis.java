@@ -4,8 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
@@ -38,10 +41,12 @@ public class Avis {
 	@JsonView(ViewCommon.class)
 	private boolean site;
 	@JsonView(ViewCommon.class)
-	@Transient
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "client_id")
 	private Client client;
 	@JsonView(ViewCommon.class)
-	@Transient
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "article_id")
 	private Article article;
 	
 	
@@ -58,16 +63,16 @@ public class Avis {
 		this.site = site;
 	}
 
-	public Avis(Date date, String avis, Integer note, boolean valide, boolean site, Client client, Article article) {
-		super();
-		this.date = date;
-		this.avis = avis;
-		this.note = note;
-		this.valide = valide;
-		this.site = site;
-		this.client = client;
-		this.article = article;
-	}
+//	public Avis(Date date, String avis, Integer note, boolean valide, boolean site, Client client, Article article) {
+//		super();
+//		this.date = date;
+//		this.avis = avis;
+//		this.note = note;
+//		this.valide = valide;
+//		this.site = site;
+//		this.client = client;
+//		this.article = article;
+//	}
 
 	public Long getId() {
 		return id;
@@ -117,12 +122,12 @@ public class Avis {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Article getArticle() {
-		return article;
-	}
-	public void setArticle(Article article) {
-		this.article = article;
-	}
+//	public Article getArticle() {
+//		return article;
+//	}
+//	public void setArticle(Article article) {
+//		this.article = article;
+//	}
 	
 	
 	
