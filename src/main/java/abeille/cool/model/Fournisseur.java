@@ -82,6 +82,19 @@ public String getNumeroTva() {
 public void setNumeroTva(String numeroTva) {
 	this.numeroTva = numeroTva;
 }
+public List<Produit> getProduits() {
+	return produits;
+}
+public void setProduits(List<Produit> produits) {
+	this.produits = produits;
+}
+public Utilisateur getUtilisateur() {
+	return utilisateur;
+}
+public void setUtilisateur(Utilisateur utilisateur) {
+	this.utilisateur = utilisateur;
+}
 	
+
 
 }
