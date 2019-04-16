@@ -6,6 +6,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -32,12 +34,15 @@ public class Utilisateur {
 	
 //	@OneToOne()
 //	@JsonView(Views.ViewCommon.class)
+//	@JoinColumn(name="client_id")
 //	private Client client;
+	@OneToOne
+	@JoinColumn(name="fournisseur_id")
+	@JsonView(Views.ViewCommon.class)
+	private Fournisseur fournisseur;
 //	@OneToOne()
 //	@JsonView(Views.ViewCommon.class)
-//	private Fournisseur fournisseur;
-//	@OneToOne()
-//	@JsonView(Views.ViewCommon.class)
+//	@JoinColumn(name="administrateur_id")
 //	private Administrateur administrateur;
 
 	public Utilisateur() {
