@@ -177,6 +177,6 @@ public class Coordonnee {
 
 	public void setCommandeClients(List<CommandeClient> commandeClients) {
 		this.commandeClients = commandeClients;
-	}	
+	}
 	
 }

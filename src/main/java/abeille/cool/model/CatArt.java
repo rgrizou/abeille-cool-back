@@ -21,7 +21,6 @@ public class CatArt {
 	@JsonView(ViewCommon.class)
 	private Long id;
 	@Version
-	@JsonView(ViewCommon.class)
 	private int version;
 	@Column
 	@JsonView(ViewCommon.class)
@@ -69,5 +68,4 @@ public class CatArt {
 	public void setArticleCatArt(List<ArticleCatArt> articleCatArt) {
 		this.articleCatArt = articleCatArt;
 	}
-
 }

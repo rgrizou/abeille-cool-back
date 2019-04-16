@@ -20,15 +20,12 @@ public class LigneCommande {
 	@JsonView(ViewCommon.class)
 	private Long id;
 	@Version
-	@JsonView(ViewCommon.class)
 	private Long version;
 	@JsonView(ViewCommon.class)
 	private Integer qte;
-	@JsonView(ViewCommon.class)
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "article_id")
 	private Article article;
-	@JsonView(ViewCommon.class)
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "commandeClient_id")
 	private CommandeClient commandeClient;
