@@ -16,7 +16,7 @@ public class Views {
 	
 	public static class ViewCoordonnee extends ViewCommon{}
 	
-	public static class ViewFournisseur{}
+	public static class ViewFournisseur extends ViewCommon{}
 	
 	public static class ViewCommandeFournisseur extends ViewCommon {}
 
