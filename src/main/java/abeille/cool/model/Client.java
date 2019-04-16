@@ -31,16 +31,16 @@ public class Client {
 	private boolean vip;
 	@JsonView(Views.ViewCommon.class)
 	private Integer fidelite;
-//	@OneToMany(mappedBy="")
-//	private List<Avis> avis = ArrayList<Avis>;
-//	@OneToMany(mappedBy="")
-//	private List<CommandeClient> comclients = ArrayList<CommandeClient>;
-//	@OneToMany(mappedBy="")
-//	private List<Coordonnee> coordonnees = ArrayList<Coordonnee>;
+	@OneToMany(mappedBy="client")
+	private List<Avis> avis = new ArrayList<Avis>();
+	@OneToMany(mappedBy="client")
+	private List<CommandeClient> comclients = new ArrayList<CommandeClient>();
+	@OneToMany(mappedBy="client")
+	private List<Coordonnee> coordonnees = new ArrayList<Coordonnee>();
 	@OneToMany(mappedBy="client")
 	private List<ClientEvenement> clievents = new ArrayList<ClientEvenement>();
-//	@OneToOne(mappedBy="")
-//	private Utilisateur utilisateur;
+	@OneToMany(mappedBy="client")
+	private Utilisateur utilisateur;
 	
 	public Client() {
 		super();

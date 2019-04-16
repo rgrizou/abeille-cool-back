@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -37,8 +38,10 @@ public class CommandeClient {
 	@JsonView(ViewCommon.class)
 	private Statut statut;
 	@ManyToOne
+	@JoinColumn(name="coordonee_id")
 	private Coordonnee coordonee;
 	@ManyToOne
+	@JoinColumn(name="client_id")
 	private Client client;
 	@OneToOne
 	private Facturation facturation;
