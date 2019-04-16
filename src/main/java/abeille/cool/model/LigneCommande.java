@@ -43,12 +43,12 @@ public class LigneCommande {
 		this.qte = qte;
 	}
 
-	public LigneCommande(Integer qte, Article article, CommandeClient commandeClient) {
-		super();
-		this.qte = qte;
-		this.article = article;
-		this.commandeClient = commandeClient;
-	}
+//	public LigneCommande(Integer qte, Article article, CommandeClient commandeClient) {
+//		super();
+//		this.qte = qte;
+//		this.article = article;
+//		this.commandeClient = commandeClient;
+//	}
 
 	public Long getId() {
 		return id;
@@ -74,21 +74,21 @@ public class LigneCommande {
 		this.qte = qte;
 	}
 
-	public Article getArticle() {
-		return article;
-	}
+//	public Article getArticle() {
+//		return article;
+//	}
+//
+//	public void setArticle(Article article) {
+//		this.article = article;
+//	}
 
-	public void setArticle(Article article) {
-		this.article = article;
-	}
-
-	public CommandeClient getCommandeClient() {
-		return commandeClient;
-	}
-
-	public void setCommandeClient(CommandeClient commandeClient) {
-		this.commandeClient = commandeClient;
-	}
+//	public CommandeClient getCommandeClient() {
+//		return commandeClient;
+//	}
+//
+//	public void setCommandeClient(CommandeClient commandeClient) {
+//		this.commandeClient = commandeClient;
+//	}
 	
 	
 }

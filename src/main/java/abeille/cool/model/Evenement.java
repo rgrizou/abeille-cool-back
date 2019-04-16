@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -45,18 +46,15 @@ public class Evenement {
 	@Column(name="photoURL")
 	@JsonView(ViewCommon.class)
 	private String photoURL;
-//	@Transient
-//	private List<ClientEvenement> clientEvenements = new ArrayList<ClientEvenement>();
-	
-	
+	@OneToMany(mappedBy="event")
+	private List<ClientEvenement> clientEvenements = new ArrayList<ClientEvenement>();
 	
 	public Evenement() {
 		super();
 	}
 
-	public Evenement(Long id, Date date, String lieu, String descriptif, String photoURL) {
+	public Evenement(Date date, String lieu, String descriptif, String photoURL) {
 		super();
-		this.id = id;
 		this.date = date;
 		this.lieu = lieu;
 		this.descriptif = descriptif;
@@ -109,6 +107,14 @@ public class Evenement {
 
 	public void setPhotoURL(String photoURL) {
 		this.photoURL = photoURL;
+	}
+
+	public List<ClientEvenement> getClientEvenements() {
+		return clientEvenements;
+	}
+
+	public void setClientEvenements(List<ClientEvenement> clientEvenements) {
+		this.clientEvenements = clientEvenements;
 	}
 
 }

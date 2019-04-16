@@ -63,16 +63,16 @@ public class Avis {
 		this.site = site;
 	}
 
-	public Avis(Date date, String avis, Integer note, boolean valide, boolean site, Client client, Article article) {
-		super();
-		this.date = date;
-		this.avis = avis;
-		this.note = note;
-		this.valide = valide;
-		this.site = site;
-		this.client = client;
-		this.article = article;
-	}
+//	public Avis(Date date, String avis, Integer note, boolean valide, boolean site, Client client, Article article) {
+//		super();
+//		this.date = date;
+//		this.avis = avis;
+//		this.note = note;
+//		this.valide = valide;
+//		this.site = site;
+//		this.client = client;
+//		this.article = article;
+//	}
 
 	public Long getId() {
 		return id;
@@ -122,12 +122,12 @@ public class Avis {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Article getArticle() {
-		return article;
-	}
-	public void setArticle(Article article) {
-		this.article = article;
-	}
+//	public Article getArticle() {
+//		return article;
+//	}
+//	public void setArticle(Article article) {
+//		this.article = article;
+//	}
 	
 	
 	
