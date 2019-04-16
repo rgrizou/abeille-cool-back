@@ -15,49 +15,48 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import abeille.cool.model.Client;
+import abeille.cool.model.Utilisateur;
 import abeille.cool.model.Views;
-import abeille.cool.repository.IClientRepository;
+import abeille.cool.repository.IUtilisateurRepository;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/utilisateur")
 @CrossOrigin("*")
-public class ClientRestController {
+public class UtilisateurRestController {
+
 	@Autowired
-	private IClientRepository clientRepo;
+	private IUtilisateurRepository utilisateurRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewClient.class)
-	public List<Client> list() {
-		return clientRepo.findAll();
+	@JsonView(Views.ViewUtilisateur.class)
+	public List<Utilisateur> list() {
+		return utilisateurRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client find(@PathVariable Long id) {
-		return clientRepo.findById(id).get();
+	@JsonView(Views.ViewUtilisateur.class)
+	public Utilisateur find(@PathVariable Long id) {
+		return utilisateurRepo.findById(id).get();
 	}
 
 	@PostMapping("")
-	@JsonView(Views.ViewClient.class)
-	public Client create(@RequestBody Client client) {
-		client = clientRepo.save(client);
-
-		return client;
+	@JsonView(Views.ViewUtilisateur.class)
+	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
+		utilisateur = utilisateurRepo.save(utilisateur);
+		return utilisateur;
 	}
-	
+
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client update(@RequestBody Client client,@PathVariable Long id) {
-		client = clientRepo.save(client);
-
-		return client;
+	@JsonView(Views.ViewUtilisateur.class)
+	public Utilisateur update(@RequestBody Utilisateur utilisateur, @PathVariable Long id) {
+		utilisateur = utilisateurRepo.save(utilisateur);
+		return utilisateur;
 	}
-	
+
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
+	@JsonView(Views.ViewUtilisateur.class)
 	public void remove(@PathVariable Long id) {
-		clientRepo.deleteById(id);
+		utilisateurRepo.deleteById(id);
 	}
 
 }

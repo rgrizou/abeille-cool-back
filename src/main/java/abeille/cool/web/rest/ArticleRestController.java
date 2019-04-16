@@ -15,49 +15,49 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import abeille.cool.model.Client;
+import abeille.cool.model.Article;
 import abeille.cool.model.Views;
-import abeille.cool.repository.IClientRepository;
+import abeille.cool.repository.IArticleRepository;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/article")
 @CrossOrigin("*")
-public class ClientRestController {
+public class ArticleRestController {
 	@Autowired
-	private IClientRepository clientRepo;
+	private IArticleRepository articleRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewClient.class)
-	public List<Client> list() {
-		return clientRepo.findAll();
+	@JsonView(Views.ViewArticle.class)
+	public List<Article> list() {
+		return articleRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client find(@PathVariable Long id) {
-		return clientRepo.findById(id).get();
+	@JsonView(Views.ViewArticle.class)
+	public Article find(@PathVariable Long id) {
+		return articleRepo.findById(id).get();
 	}
 
 	@PostMapping("")
-	@JsonView(Views.ViewClient.class)
-	public Client create(@RequestBody Client client) {
-		client = clientRepo.save(client);
+	@JsonView(Views.ViewArticle.class)
+	public Article create(@RequestBody Article article) {
+		article = articleRepo.save(article);
 
-		return client;
+		return article;
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client update(@RequestBody Client client,@PathVariable Long id) {
-		client = clientRepo.save(client);
+	@JsonView(Views.ViewArticle.class)
+	public Article update(@RequestBody Article article,@PathVariable Long id) {
+		article = articleRepo.save(article);
 
-		return client;
+		return article;
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
+	@JsonView(Views.ViewArticle.class)
 	public void remove(@PathVariable Long id) {
-		clientRepo.deleteById(id);
+		articleRepo.deleteById(id);
 	}
 
 }

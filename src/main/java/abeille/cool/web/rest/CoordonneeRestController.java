@@ -15,49 +15,49 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import abeille.cool.model.Client;
+import abeille.cool.model.Coordonnee;
 import abeille.cool.model.Views;
-import abeille.cool.repository.IClientRepository;
+import abeille.cool.repository.ICoordonneeRepository;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/coordonnee")
 @CrossOrigin("*")
-public class ClientRestController {
+public class CoordonneeRestController {
 	@Autowired
-	private IClientRepository clientRepo;
+	private ICoordonneeRepository coordonneeRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewClient.class)
-	public List<Client> list() {
-		return clientRepo.findAll();
+	@JsonView(Views.ViewCoordonnee.class)
+	public List<Coordonnee> list() {
+		return coordonneeRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client find(@PathVariable Long id) {
-		return clientRepo.findById(id).get();
+	@JsonView(Views.ViewCoordonnee.class)
+	public Coordonnee find(@PathVariable Long id) {
+		return coordonneeRepo.findById(id).get();
 	}
 
 	@PostMapping("")
-	@JsonView(Views.ViewClient.class)
-	public Client create(@RequestBody Client client) {
-		client = clientRepo.save(client);
+	@JsonView(Views.ViewCoordonnee.class)
+	public Coordonnee create(@RequestBody Coordonnee coordonnee) {
+		coordonnee = coordonneeRepo.save(coordonnee);
 
-		return client;
+		return coordonnee;
 	}
 	
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
-	public Client update(@RequestBody Client client,@PathVariable Long id) {
-		client = clientRepo.save(client);
+	@JsonView(Views.ViewCoordonnee.class)
+	public Coordonnee update(@RequestBody Coordonnee coordonnee,@PathVariable Long id) {
+		coordonnee = coordonneeRepo.save(coordonnee);
 
-		return client;
+		return coordonnee;
 	}
 	
 	@DeleteMapping("/{id}")
-	@JsonView(Views.ViewClient.class)
+	@JsonView(Views.ViewCoordonnee.class)
 	public void remove(@PathVariable Long id) {
-		clientRepo.deleteById(id);
+		coordonneeRepo.deleteById(id);
 	}
 
 }
