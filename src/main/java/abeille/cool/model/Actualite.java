@@ -12,8 +12,8 @@ import javax.persistence.Version;
 public class Actualite {
 
 	@Id
-	@GeneratedValue
-	private Long id; 
+	@GeneratedValue // génère l'id automatiquement, pas besoin de le mettre dans le constructeur. 
+	private Long id; // indique que l'id est en attribut 
 	@Version
 	private int version; 
 	@Column(name= "titre", length=350)
@@ -29,9 +29,8 @@ public class Actualite {
 		super();
 	}
 
-	public Actualite(Long id, String titre, String descriptif, Date date, String photoUrl, Boolean active) {
+	public Actualite(String titre, String descriptif, Date date, String photoUrl, Boolean active) {
 		super();
-		this.id = id;
 		this.titre = titre;
 		this.descriptif = descriptif;
 		this.date = date;
