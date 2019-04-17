@@ -1,5 +1,6 @@
 package abeille.cool.web.rest;
 
+import java.io.Console;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -39,6 +42,21 @@ public class UtilisateurRestController {
 		return utilisateurRepo.findById(id).get();
 	}
 
+	@PostMapping("/existmail")
+	@JsonView(Views.ViewUtilisateur.class)
+	public Boolean existMail(@RequestBody String existmail) {
+		List<Utilisateur> utilisateurs=utilisateurRepo.findAll();
+		if(!utilisateurs.isEmpty()) {
+			for(Utilisateur u:utilisateurs) {
+				System.err.println(existmail);
+				if(u.getMail().contentEquals(existmail)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	@PostMapping("")
 	@JsonView(Views.ViewUtilisateur.class)
 	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
