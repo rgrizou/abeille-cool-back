@@ -48,8 +48,21 @@ public class UtilisateurRestController {
 		List<Utilisateur> utilisateurs=utilisateurRepo.findAll();
 		if(!utilisateurs.isEmpty()) {
 			for(Utilisateur u:utilisateurs) {
-				System.err.println(existmail);
 				if(u.getMail().contentEquals(existmail)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	@PostMapping("/login")
+	@JsonView(Views.ViewUtilisateur.class)
+	public Boolean login(@RequestBody Utilisateur utilisateur) {
+		List<Utilisateur> utilisateurs=utilisateurRepo.findAll();
+		if(!utilisateurs.isEmpty()) {
+			for(Utilisateur u:utilisateurs) {
+				if((u.getMail().contentEquals(utilisateur.getMail()) &&(u.getMdp().contentEquals(utilisateur.getMdp())))) {
 					return true;
 				}
 			}
