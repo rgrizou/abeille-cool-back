@@ -36,7 +36,7 @@ public class Utilisateur {
 	@OneToOne
 	@JoinColumn(name="fournisseur_id")
 	private Fournisseur fournisseur;
-	@OneToOne()
+	@OneToOne
 	@JoinColumn(name="administrateur_id")
 	private Administrateur administrateur;
 

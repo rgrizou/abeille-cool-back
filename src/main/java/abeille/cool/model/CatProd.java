@@ -28,7 +28,7 @@ public class CatProd {
 	public CatProd() {
 		super();
 	}
-
+	
 	public CatProd(String nom) {
 		super();
 		this.nom = nom;
