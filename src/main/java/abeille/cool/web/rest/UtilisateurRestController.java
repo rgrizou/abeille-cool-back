@@ -58,16 +58,16 @@ public class UtilisateurRestController {
 	
 	@PostMapping("/login")
 	@JsonView(Views.ViewUtilisateur.class)
-	public Boolean login(@RequestBody Utilisateur utilisateur) {
+	public Long login(@RequestBody Utilisateur utilisateur) {
 		List<Utilisateur> utilisateurs=utilisateurRepo.findAll();
 		if(!utilisateurs.isEmpty()) {
 			for(Utilisateur u:utilisateurs) {
 				if((u.getMail().contentEquals(utilisateur.getMail()) &&(u.getMdp().contentEquals(utilisateur.getMdp())))) {
-					return true;
+					return u.getId();
 				}
 			}
 		}
-		return false;
+		return 0L;
 	}
 	
 	@PostMapping("")
