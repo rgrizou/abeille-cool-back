@@ -21,6 +21,7 @@ public class Administrateur {
 	@JsonView(Views.ViewCommon.class)
 	private Long id; 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version; 
 	@Column(name= "nom", length=30)
 	@NotEmpty(message="Le nom doit être renseigné.")

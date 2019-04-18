@@ -38,6 +38,8 @@ public class Views {
 	
 	public static class ViewProduit extends ViewCommon {}
 	
+	public static class ViewProduitWithFournisseur extends ViewProduit {}
+	
 	public static class ViewProduitCatProd extends ViewCommon {}
 	
 	public static class ViewCatProd extends ViewCommon {}

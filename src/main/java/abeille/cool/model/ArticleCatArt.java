@@ -18,6 +18,7 @@ public class ArticleCatArt {
 	@JsonView(ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@ManyToOne
 	@JoinColumn(name = "catArt_id")

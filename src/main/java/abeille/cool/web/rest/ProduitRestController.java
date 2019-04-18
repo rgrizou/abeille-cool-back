@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.Produit;
-import abeille.cool.model.ProduitCatProd;
 import abeille.cool.model.Views;
 import abeille.cool.repository.IProduitCatProdRepository;
 import abeille.cool.repository.IProduitRepository;
@@ -38,6 +37,12 @@ public class ProduitRestController {
 		@JsonView(Views.ViewProduit.class)
 		public List<Produit> list() {
 			return produitRepo.findAll();
+		}
+		
+		@GetMapping("/by-fournisseur")
+		@JsonView(Views.ViewProduitWithFournisseur.class)
+		public List<Produit> listByFournisseur() {
+			return produitRepo.findAllProduitByFournisseur();
 		}
 
 		@GetMapping("/{id}")
