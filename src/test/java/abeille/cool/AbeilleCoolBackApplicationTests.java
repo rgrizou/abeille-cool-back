@@ -212,7 +212,9 @@ public class AbeilleCoolBackApplicationTests {
 		produitCatProd = produitCaProdRepo.save(produitCatProd);
 		
 		produit1.setFournisseur(fournisseur1);
+		produit2.setFournisseur(fournisseur1);
 		produit1 = produitRepo.save(produit1);
+		produit2 = produitRepo.save(produit2);
 		
 		commandeF1.setAdministrateur(admin1);
 		commandeF1 = commandeFournisseurRepo.save(commandeF1);

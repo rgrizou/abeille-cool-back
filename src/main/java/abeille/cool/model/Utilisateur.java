@@ -19,6 +19,7 @@ public class Utilisateur {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(length = 100)
 	@JsonView(Views.ViewCommon.class)
