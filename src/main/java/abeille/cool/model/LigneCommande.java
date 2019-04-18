@@ -20,6 +20,7 @@ public class LigneCommande {
 	@JsonView(ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Long version;
 	@JsonView(ViewCommon.class)
 	private Integer qte;

@@ -34,6 +34,12 @@ public class ProduitRestController {
 		public List<Produit> list() {
 			return ProduitRepo.findAll();
 		}
+		
+		@GetMapping("/by-fournisseur")
+		@JsonView(Views.ViewProduitWithFournisseur.class)
+		public List<Produit> listByFournisseur() {
+			return ProduitRepo.findAllProduitByFournisseur();
+		}
 
 		@GetMapping("/{id}")
 		@JsonView(Views.ViewProduit.class)

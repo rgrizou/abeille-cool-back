@@ -17,6 +17,7 @@ public class Actualite {
 	@JsonView(Views.ViewCommon.class)
 	private Long id; 
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version; 
 	@Column(name= "titre", length=350)
 	@JsonView(Views.ViewCommon.class)

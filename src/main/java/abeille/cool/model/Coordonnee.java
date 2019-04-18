@@ -23,6 +23,7 @@ public class Coordonnee {
 	@JsonView(ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private Long version;
 	@Column(length = 100)
 	@JsonView(ViewCommon.class)

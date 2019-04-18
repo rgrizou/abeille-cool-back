@@ -25,8 +25,9 @@ public class Produit {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
-	private int version;
 	@JsonView(Views.ViewCommon.class)
+	private int version;
+	@JsonView (Views.ViewCommon.class)
 	private String nom;
 	@JsonView(Views.ViewCommon.class)
 	private String description;
@@ -39,6 +40,7 @@ public class Produit {
 	private Unite unite;
 	@ManyToOne
 	@JoinColumn (name ="fournisseur_id")
+	@JsonView(Views.ViewProduitWithFournisseur.class)
 	private Fournisseur fournisseur;
 	@OneToMany(mappedBy = "produit")
 	private List<CommandeFournisseur> commandeFournisseurs = new ArrayList<CommandeFournisseur>();
