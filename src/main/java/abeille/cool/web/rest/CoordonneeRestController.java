@@ -37,6 +37,12 @@ public class CoordonneeRestController {
 	public Coordonnee find(@PathVariable Long id) {
 		return coordonneeRepo.findById(id).get();
 	}
+	
+	@GetMapping("/by-client/{idClient}")
+	@JsonView(Views.ViewCoordonnee.class)
+	public List<Coordonnee> findByClient(@PathVariable Long idClient) {
+		return coordonneeRepo.findAllCoordonneeByClient(idClient);
+	}
 
 	@PostMapping("")
 	@JsonView(Views.ViewCoordonnee.class)

@@ -14,4 +14,6 @@ public interface IProduitRepository extends JpaRepository <Produit, Long> {
 	@Query("select distinct p from Produit p join fetch p.fournisseur f where p.qte > 0 ")
 	List<Produit> findAllProduitByFournisseur();
 
+	
+	
 }

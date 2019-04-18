@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.Administrateur;
+import abeille.cool.model.Views;
 import abeille.cool.repository.IAdministrateurRepository;
 
 
@@ -28,17 +29,19 @@ public class AdministrateurRestController {
 	private IAdministrateurRepository adminRepo;
 
 	@GetMapping("")
+	@JsonView(Views.ViewAdministrateur.class)
 	public List<Administrateur> list() {
 		return adminRepo.findAll();
 	}
 	
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewAdministrateur.class)
 	public Administrateur find (@PathVariable Long id) { 
 		return (Administrateur) adminRepo.findById(id).get(); 
 	}
 	
 	@PostMapping("")
-	@JsonView()
+	@JsonView(Views.ViewAdministrateur.class)
 	public Administrateur create (@RequestBody Administrateur administrateur) {
 		administrateur = adminRepo.save(administrateur); 
 		
@@ -47,6 +50,7 @@ public class AdministrateurRestController {
 	}
 	
 	@PutMapping("{/id}")
+	@JsonView(Views.ViewAdministrateur.class)
 	public Administrateur update (@RequestBody Administrateur administrateur,@PathVariable Long id) {
 		administrateur = adminRepo.save(administrateur); 
 		
@@ -55,6 +59,7 @@ public class AdministrateurRestController {
 	}
 	
 	@DeleteMapping("/{id}")
+	@JsonView(Views.ViewAdministrateur.class)
 	public void remove(@PathVariable Long id) {
 		adminRepo.deleteById(id);
 	}
