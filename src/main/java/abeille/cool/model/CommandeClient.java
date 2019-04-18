@@ -29,6 +29,7 @@ public class CommandeClient {
 	@JsonView(ViewCommon.class)
 	private long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "date")
 	@Temporal(TemporalType.DATE)
@@ -40,6 +41,7 @@ public class CommandeClient {
 	private Statut statut;
 	@ManyToOne
 	@JoinColumn(name="coordonnee_id")
+	@JsonView(ViewCommon.class)
 	private Coordonnee coordonnee;
 	@ManyToOne
 	@JoinColumn(name="client_id")

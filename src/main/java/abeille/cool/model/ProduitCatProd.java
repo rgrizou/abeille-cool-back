@@ -17,6 +17,7 @@ public class ProduitCatProd {
 	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@ManyToOne
 	@JoinColumn(name = "catProd_id")

@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import abeille.cool.model.Evenement;
+import abeille.cool.model.Views;
 import abeille.cool.repository.IEvenementRepository;
 
 @RestController
@@ -25,16 +28,19 @@ public class EvenementRestController {
 	private IEvenementRepository evenementRepo;
 
 	@GetMapping("")
+	@JsonView(Views.ViewEvenement.class)
 	public List<Evenement> list() {
 		return evenementRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewEvenement.class)
 	public Evenement find(@PathVariable Long id) {
 		return evenementRepo.findById(id).get();
 	}
 
 	@PostMapping("")
+	@JsonView(Views.ViewEvenement.class)
 	public Evenement create(@RequestBody Evenement evenement) {
 		evenement = evenementRepo.save(evenement);
 
@@ -42,6 +48,7 @@ public class EvenementRestController {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewEvenement.class)
 	public Evenement update(@RequestBody Evenement evenement, @PathVariable Long id) {
 		evenement = evenementRepo.save(evenement);
 
@@ -49,6 +56,7 @@ public class EvenementRestController {
 	}
 
 	@DeleteMapping("/{id}")
+	@JsonView(Views.ViewEvenement.class)
 	public void remove(@PathVariable Long id) {
 		evenementRepo.deleteById(id);
 	}
