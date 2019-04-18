@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.Produit;
 import abeille.cool.model.Views;
+import abeille.cool.repository.IProduitCatProdRepository;
 import abeille.cool.repository.IProduitRepository;
 
 
@@ -27,24 +28,33 @@ public class ProduitRestController {
 	
 
 		@Autowired
-		private IProduitRepository ProduitRepo;
+		private IProduitRepository produitRepo;
+		
+		@Autowired
+		private IProduitCatProdRepository produitCatProdRepo;
 
 		@GetMapping("")
 		@JsonView(Views.ViewProduit.class)
 		public List<Produit> list() {
-			return ProduitRepo.findAll();
+			return produitRepo.findAll();
+		}
+		
+		@GetMapping("/by-fournisseur")
+		@JsonView(Views.ViewProduitWithFournisseur.class)
+		public List<Produit> listByFournisseur() {
+			return produitRepo.findAllProduitByFournisseur();
 		}
 
 		@GetMapping("/{id}")
 		@JsonView(Views.ViewProduit.class)
 		public Produit find(@PathVariable Long id) {
-			return ProduitRepo.findById(id).get();
+			return produitRepo.findById(id).get();
 		}
 
 		@PostMapping("")
 		@JsonView(Views.ViewProduit.class)
 		public Produit create(@RequestBody Produit produit) {
-			produit = ProduitRepo.save(produit);
+			produit = produitRepo.save(produit);
 
 			return produit;
 		}
@@ -52,15 +62,17 @@ public class ProduitRestController {
 		@PutMapping("/{id}")
 		@JsonView(Views.ViewProduit.class)
 		public Produit update(@RequestBody Produit produit, @PathVariable Long id) {
-			produit = ProduitRepo.save(produit);
+			produit = produitRepo.save(produit);
 
 			return produit;
 		}
 		
 		@DeleteMapping("/{id}")
 		@JsonView(Views.ViewProduit.class)
+//		public void remove(@RequestBody ProduitCatProd produitCatProd, @PathVariable Long id) {
 		public void remove(@PathVariable Long id) {
-			ProduitRepo.deleteById(id);
+			produitCatProdRepo.deleteAll(produitCatProdRepo.findAllProduitCatProdByIdProduit(id));
+			produitRepo.deleteById(id);
 		}
 
 	}

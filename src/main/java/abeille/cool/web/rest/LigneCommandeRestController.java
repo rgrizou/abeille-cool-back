@@ -31,6 +31,12 @@ public class LigneCommandeRestController {
 	public List<LigneCommande> list() {
 		return ligneCommandeRepo.findAll();
 	}
+	
+	@GetMapping("/by-commande-client-id/{id}")
+	@JsonView(Views.ViewLigneCommande.class)
+	public List<LigneCommande> findByCommandeClient(@PathVariable Long id) {
+		return ligneCommandeRepo.findByCommandeClientId(id);
+	}
 
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewLigneCommande.class)

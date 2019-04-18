@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import abeille.cool.model.Facturation;
+import abeille.cool.model.Views;
 import abeille.cool.repository.IFacturationRepository;
 
 @RestController
@@ -25,16 +28,19 @@ public class FacturationRestController {
 	private IFacturationRepository facturationRepo;
 
 	@GetMapping("")
+	@JsonView(Views.ViewFacturation.class)
 	public List<Facturation> list() {
 		return facturationRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
+	@JsonView(Views.ViewFacturation.class)
 	public Facturation find(@PathVariable Long id) {
 		return facturationRepo.findById(id).get();
 	}
 
 	@PostMapping("")
+	@JsonView(Views.ViewFacturation.class)
 	public Facturation create(@RequestBody Facturation facturation) {
 		facturation = facturationRepo.save(facturation);
 
@@ -42,6 +48,7 @@ public class FacturationRestController {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewFacturation.class)
 	public Facturation update(@RequestBody Facturation facturation, @PathVariable Long id) {
 		facturation = facturationRepo.save(facturation);
 
@@ -49,6 +56,7 @@ public class FacturationRestController {
 	}
 
 	@DeleteMapping("/{id}")
+	@JsonView(Views.ViewFacturation.class)
 	public void remove(@PathVariable Long id) {
 		facturationRepo.deleteById(id);
 	}

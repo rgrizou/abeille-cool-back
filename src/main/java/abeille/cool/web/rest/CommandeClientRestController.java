@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.CommandeClient;
+import abeille.cool.model.Coordonnee;
 import abeille.cool.model.Views;
 import abeille.cool.repository.ICommandeClientRepository;
 
@@ -36,6 +37,12 @@ public class CommandeClientRestController {
 	@JsonView(Views.ViewCommandeClient.class)
 	public CommandeClient find(@PathVariable Long id) {
 		return commandeClientRepo.findById(id).get();
+	}
+	
+	@GetMapping("/by-facture/{idFacture}")
+	@JsonView(Views.ViewCoordonnee.class)
+	public CommandeClient findByFacture(@PathVariable Long idFacture) {
+		return commandeClientRepo.findCommandeByFacture(idFacture);
 	}
 	
 	@PostMapping("")
