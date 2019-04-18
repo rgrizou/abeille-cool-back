@@ -33,12 +33,15 @@ public class Utilisateur {
 	private TypeUtilisateur type;
 	@OneToOne
 	@JoinColumn(name="client_id")
+	@JsonView(Views.ViewCommon.class)
 	private Client client;
 	@OneToOne
 	@JoinColumn(name="fournisseur_id")
+	@JsonView(Views.ViewCommon.class)
 	private Fournisseur fournisseur;
 	@OneToOne
 	@JoinColumn(name="administrateur_id")
+	@JsonView(Views.ViewCommon.class)
 	private Administrateur administrateur;
 
 	public Utilisateur() {

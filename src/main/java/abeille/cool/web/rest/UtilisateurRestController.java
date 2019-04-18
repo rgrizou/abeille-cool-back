@@ -15,8 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import abeille.cool.model.Administrateur;
+import abeille.cool.model.Client;
+import abeille.cool.model.Fournisseur;
+import abeille.cool.model.TypeUtilisateur;
 import abeille.cool.model.Utilisateur;
 import abeille.cool.model.Views;
+import abeille.cool.repository.IAdministrateurRepository;
+import abeille.cool.repository.IClientRepository;
+import abeille.cool.repository.IFournisseurRepository;
 import abeille.cool.repository.IUtilisateurRepository;
 
 @RestController
@@ -26,6 +33,12 @@ public class UtilisateurRestController {
 
 	@Autowired
 	private IUtilisateurRepository utilisateurRepo;
+	@Autowired
+	private IClientRepository clientRepo;
+	@Autowired
+	private IFournisseurRepository fournisseurRepo;
+	@Autowired
+	private IAdministrateurRepository administrateurRepo;
 
 	@GetMapping("")
 	@JsonView(Views.ViewUtilisateur.class)
@@ -70,6 +83,19 @@ public class UtilisateurRestController {
 	@PostMapping("")
 	@JsonView(Views.ViewUtilisateur.class)
 	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
+		if(utilisateur.getType()==TypeUtilisateur.CLIENT) {
+			Client client = new Client();
+			client=clientRepo.save(client);
+			utilisateur.setClient(client);
+		}else if(utilisateur.getType()==TypeUtilisateur.FOURNISSEUR) {
+			Fournisseur fournisseur = new Fournisseur();
+			fournisseur=fournisseurRepo.save(fournisseur);
+			utilisateur.setFournisseur(fournisseur);
+		}else if(utilisateur.getType()==TypeUtilisateur.ADMINISTRATEUR) {
+			Administrateur administrateur = new Administrateur();
+			administrateur=administrateurRepo.save(administrateur);
+			utilisateur.setAdministrateur(administrateur);
+			}
 		utilisateur = utilisateurRepo.save(utilisateur);
 		return utilisateur;
 	}
