@@ -40,6 +40,7 @@ public class CommandeClient {
 	private Statut statut;
 	@ManyToOne
 	@JoinColumn(name="coordonnee_id")
+	@JsonView(ViewCommon.class)
 	private Coordonnee coordonnee;
 	@ManyToOne
 	@JoinColumn(name="client_id")
