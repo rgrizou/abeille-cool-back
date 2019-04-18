@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.CommandeClient;
-import abeille.cool.model.Coordonnee;
 import abeille.cool.model.Views;
 import abeille.cool.repository.ICommandeClientRepository;
 
