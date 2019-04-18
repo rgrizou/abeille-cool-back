@@ -7,23 +7,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
  
 @Entity
 public class Actualite {
 
 	@Id
 	@GeneratedValue // génère l'id automatiquement, pas besoin de le mettre dans le constructeur. 
+	@JsonView(Views.ViewCommon.class)
 	private Long id; // indique que l'id est en attribut 
 	@Version
 	@JsonView(Views.ViewCommon.class)
 	private int version; 
+	@JsonView(Views.ViewCommon.class)
 	@Column(name= "titre", length=350)
 	private String titre;
 	@Column(name= "descriptif", length=6000)
+	@JsonView(Views.ViewCommon.class)
 	private String descriptif; 
 	@Column(name= "date", length=30)
+	@JsonView(Views.ViewCommon.class)
 	private Date date; 
+	@JsonView(Views.ViewCommon.class)
 	private String photoUrl; 
+	@JsonView(Views.ViewCommon.class)
 	private Boolean active; 
 	
 	public Actualite() {
