@@ -19,6 +19,7 @@ import abeille.cool.model.Avis;
 import abeille.cool.model.Views;
 import abeille.cool.repository.IAvisRepository;
 
+
 @RestController
 @RequestMapping("/avis")
 @CrossOrigin("*")
@@ -58,6 +59,13 @@ public class AvisRestController {
 	@JsonView(Views.ViewAvis.class)
 	public void remove(@PathVariable Long id) {
 		avisRepo.deleteById(id);
+	}
+	
+	
+	@GetMapping("/article/{articleId}")
+	@JsonView(Views.ViewAvis.class)
+	public List<Avis> findByArticle(@PathVariable Long articleId) {
+		return avisRepo.findAllByArticle(articleId);
 	}
 
 }
