@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import abeille.cool.model.Article;
+import abeille.cool.model.TypeHydromel;
 import abeille.cool.model.Views;
 import abeille.cool.repository.IArticleRepository;
 
@@ -37,7 +38,25 @@ public class ArticleRestController {
 	public Article find(@PathVariable Long id) {
 		return articleRepo.findById(id).get();
 	}
-
+	
+	@GetMapping("/by-nom/{nom}")
+	@JsonView(Views.ViewArticle.class)
+	public List<Article> find(@PathVariable String nom) {
+		return articleRepo.findByNom(nom);
+	}
+	
+	@GetMapping("/by-nom")
+	@JsonView(Views.ViewArticle.class)
+	public List<Article> find() {
+		return articleRepo.findAll();
+	}
+	
+	@GetMapping("/by-typeHydromel/{typeHydromel}")
+	@JsonView(Views.ViewArticle.class)
+	public List<Article> find(@PathVariable TypeHydromel typeHydromel) {
+		return articleRepo.findByTypeHydromel(typeHydromel);
+	}
+	
 	@PostMapping("")
 	@JsonView(Views.ViewArticle.class)
 	public Article create(@RequestBody Article article) {
