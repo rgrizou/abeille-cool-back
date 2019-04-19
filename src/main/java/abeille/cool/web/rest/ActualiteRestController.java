@@ -20,7 +20,7 @@ import abeille.cool.model.Views;
 import abeille.cool.repository.IActualiteRepository;
 
 @RestController
-@RequestMapping("/actualite")
+@RequestMapping("/actualite") // map l'url du back, accessible depuis le http.service.ts du component côté front.
 @CrossOrigin("*") // autoriser l'accès depuis n'importe quelle adresse
 public class ActualiteRestController {
 
@@ -33,7 +33,7 @@ public class ActualiteRestController {
 		return actuRepo.findAll();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{id}")// map l'url du back, accessible depuis le http.service.ts du component côté front.
 	@JsonView(Views.ViewActualite.class)
 	public Actualite find (@PathVariable Long id) { 
 		return (Actualite) actuRepo.findById(id).get(); 
@@ -48,7 +48,7 @@ public class ActualiteRestController {
 		
 	}
 	
-	@PutMapping("{/id}")
+	@PutMapping("{/id}")// map l'url du back, accessible depuis le http.service.ts du component côté front.
 	@JsonView(Views.ViewActualite.class)
 	public Actualite update (@RequestBody Actualite actualite, @PathVariable Long id) {
 		actualite = actuRepo.save(actualite); 
@@ -57,10 +57,30 @@ public class ActualiteRestController {
 		
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{id}") // map l'url du back, accessible depuis le http.service.ts du component côté front.
 	@JsonView(Views.ViewActualite.class)
 	public void remove(@PathVariable Long id) {
 		actuRepo.deleteById(id);
 	}
 
+	@GetMapping("/by-date")// map l'url du back, accessible depuis le http.service.ts du component côté front.
+	@JsonView(Views.ViewActualite.class)
+	public Actualite findDate() {
+		List<Actualite> actus = actuRepo.findByDate();
+		return actus.get(actus.size()-1);
+	}
+
+	@GetMapping("/by-hors-date")
+	@JsonView(Views.ViewActualite.class)
+	public List<Actualite> findHorsDate() {
+		List<Actualite> actus= actuRepo.findByHorsDate(findDate().getId());
+		for(int i = 0; i < actus.size() / 2; i++)
+		 {
+		     Actualite  temp = actus.get(i);
+		     actus.set(i, actus.get(actus.size()-i-1));
+		     actus.set(actus.size()-i-1, temp);
+		 }
+		return actus;
+		
+	}
 }

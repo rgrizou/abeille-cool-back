@@ -64,4 +64,10 @@ public class CommandeClientRestController {
 	public void remove(@PathVariable Long id) {
 		commandeClientRepo.deleteById(id);
 	}
+	
+	@GetMapping("/by-client/{clientId}")
+	@JsonView(Views.ViewCommandeClient.class)
+	public List<CommandeClient> findPanierByClientId(@PathVariable Long clientId){
+		return commandeClientRepo.findPanierByClientId(clientId);
+	}
 }

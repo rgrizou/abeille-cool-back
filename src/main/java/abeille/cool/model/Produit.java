@@ -38,6 +38,10 @@ public class Produit {
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private Unite unite;
+	@JsonView(Views.ViewCommon.class)
+	private boolean traite;
+	@JsonView(Views.ViewCommon.class)
+	private boolean valide;
 	@ManyToOne
 	@JoinColumn (name ="fournisseur_id")
 	@JsonView(Views.ViewProduitWithFournisseur.class)
@@ -52,6 +56,20 @@ public class Produit {
 		super();
 	}	
 	
+	public Produit(String nom, String description, Integer qte, Float prixUnitaireHT, Unite unite,
+			boolean traite, boolean valide) {
+		super();
+		this.nom = nom;
+		this.description = description;
+		this.qte = qte;
+		this.prixUnitaireHT = prixUnitaireHT;
+		this.unite = unite;
+		this.traite = traite;
+		this.valide = valide;
+	}
+
+
+
 	public Produit(String nom, String description, Integer qte, Float prixUnitaireHT, Unite unite) {
 		super();
 		this.nom = nom;
@@ -115,6 +133,23 @@ public class Produit {
 	
 	public void setUnite(Unite unite) {
 		this.unite = unite;
+	}
+	
+
+	public boolean isTraite() {
+		return traite;
+	}
+
+	public void setTraite(boolean traite) {
+		this.traite = traite;
+	}
+
+	public boolean isValide() {
+		return valide;
+	}
+
+	public void setValide(boolean valide) {
+		this.valide = valide;
 	}
 
 	public Fournisseur getFournisseur() {
