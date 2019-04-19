@@ -140,14 +140,14 @@ public class AbeilleCoolBackApplicationTests {
 		ligneCommande=ligneCommandeRepo.save(ligneCommande);
 		utilisateur=utilisateurRepo.save(utilisateur);
 		
-		Produit produit1 = new Produit("miel", " le meilleur des miels", 100, (float) 10, Unite.kg);
+		Produit produit1 = new Produit("miel", " le meilleur des miels", 100, (float) 10, Unite.kg, false, false);
 		produit1 = produitRepo.save(produit1);
 		produit1.setQte(200);
 		Optional<Produit> optProduit = produitRepo.findById(produit1.getId());
 		produit1 = optProduit.get();
 		produitRepo.findAll();
 		
-		Produit produit2 = new Produit("bouteille", " une bouteuille de qualité", 1000, (float) 50, Unite.Unite);
+		Produit produit2 = new Produit("bouteille", " une bouteuille de qualité", 1000, (float) 50, Unite.Unite, false, false);
 		produit2 = produitRepo.save(produit2);
 		
 		CatProd catProd1 = new CatProd("materiel");
@@ -212,7 +212,7 @@ public class AbeilleCoolBackApplicationTests {
 		produitCatProd = produitCaProdRepo.save(produitCatProd);
 		
 		produit1.setFournisseur(fournisseur1);
-		produit2.setFournisseur(fournisseur1);
+		produit2.setFournisseur(fournisseur2);
 		produit1 = produitRepo.save(produit1);
 		produit2 = produitRepo.save(produit2);
 		
@@ -223,6 +223,6 @@ public class AbeilleCoolBackApplicationTests {
 		utilisateur2.setFournisseur(fournisseur1);
 		utilisateur1 = utilisateurRepo.save(utilisateur1);
 		utilisateur2 = utilisateurRepo.save(utilisateur2);
-		produitRepo.delete(produit2);
+//		produitRepo.delete(produit2);
 	}
 }
