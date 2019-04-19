@@ -11,4 +11,7 @@ import abeille.cool.model.Avis;
 public interface IAvisRepository extends JpaRepository<Avis,Long>{
 	@Query("select a from Avis a where a.article.id = :articleId  ")
 	List<Avis> findAllByArticle(@Param("articleId") Long articleId);
+	
+	@Query("select a from Avis a where a.site = TRUE")
+	List<Avis> findAllForSite();
 }

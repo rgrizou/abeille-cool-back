@@ -67,5 +67,11 @@ public class AvisRestController {
 	public List<Avis> findByArticle(@PathVariable Long articleId) {
 		return avisRepo.findAllByArticle(articleId);
 	}
+	
+	@GetMapping("/livre-d'or")
+	@JsonView(Views.ViewAvis.class)
+	public List<Avis> findAvisSite() {
+		return avisRepo.findAllForSite();
+	}
 
 }
