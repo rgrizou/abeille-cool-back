@@ -18,10 +18,10 @@ public class Actualite {
 	@JsonView(Views.ViewCommon.class)
 	private Long id; // indique que l'id est en attribut 
 	@Version
+	@JsonView(Views.ViewCommon.class)						
+	private int version; 	
 	@JsonView(Views.ViewCommon.class)
-	private int version; 
-	@JsonView(Views.ViewCommon.class)
-	@Column(name= "titre", length=350)
+	@Column(name= "titre", length=350)			
 	private String titre;
 	@Column(name= "descriptif", length=6000)
 	@JsonView(Views.ViewCommon.class)
