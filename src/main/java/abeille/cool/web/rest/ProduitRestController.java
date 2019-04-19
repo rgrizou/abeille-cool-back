@@ -46,7 +46,7 @@ public class ProduitRestController {
 		}
 
 		@GetMapping("/{id}")
-		@JsonView(Views.ViewProduit.class)
+		@JsonView(Views.ViewProduitWithFournisseur.class)
 		public Produit find(@PathVariable Long id) {
 			return produitRepo.findById(id).get();
 		}

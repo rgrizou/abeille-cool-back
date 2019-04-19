@@ -45,4 +45,8 @@ public class Views {
 	public static class ViewCatProd extends ViewCommon {}
 	
 	public static class ViewFacturationWithCommandeCLient extends ViewCommandeClient {}
+	
+	public static class ViewUtilisateurWithMdp extends ViewUtilisateur {}
+	
+
 }
