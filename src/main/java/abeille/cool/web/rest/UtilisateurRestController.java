@@ -55,24 +55,25 @@ public class UtilisateurRestController {
 	@PostMapping("/existmail")
 	@JsonView(Views.ViewUtilisateur.class)
 	public Boolean existMail(@RequestBody String existmail) {
-		List<Utilisateur> utilisateurs=utilisateurRepo.findAll();
-		if(!utilisateurs.isEmpty()) {
-			for(Utilisateur u:utilisateurs) {
-				if(u.getMail().contentEquals(existmail)) {
+		List<Utilisateur> utilisateurs = utilisateurRepo.findAll();
+		if (!utilisateurs.isEmpty()) {
+			for (Utilisateur u : utilisateurs) {
+				if (u.getMail().contentEquals(existmail)) {
 					return true;
 				}
 			}
 		}
 		return false;
 	}
-	
+
 	@PostMapping("/login")
 	@JsonView(Views.ViewUtilisateur.class)
 	public Long login(@RequestBody Utilisateur utilisateur) {
-		List<Utilisateur> utilisateurs=utilisateurRepo.findAll();
-		if(!utilisateurs.isEmpty()) {
-			for(Utilisateur u:utilisateurs) {
-				if((u.getMail().contentEquals(utilisateur.getMail()) &&(u.getMdp().contentEquals(utilisateur.getMdp())))) {
+		List<Utilisateur> utilisateurs = utilisateurRepo.findAll();
+		if (!utilisateurs.isEmpty()) {
+			for (Utilisateur u : utilisateurs) {
+				if ((u.getMail().contentEquals(utilisateur.getMail())
+						&& (u.getMdp().contentEquals(utilisateur.getMdp())))) {
 					return u.getId();
 				}
 			}
@@ -80,30 +81,50 @@ public class UtilisateurRestController {
 		return 0L;
 	}
 	
-	@PostMapping("")
+	@PostMapping("/verifmdp")
 	@JsonView(Views.ViewUtilisateur.class)
-	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
-		if(utilisateur.getType()==TypeUtilisateur.CLIENT) {
-			Client client = new Client();
-			client=clientRepo.save(client);
-			utilisateur.setClient(client);
-		}else if(utilisateur.getType()==TypeUtilisateur.FOURNISSEUR) {
-			Fournisseur fournisseur = new Fournisseur();
-			fournisseur=fournisseurRepo.save(fournisseur);
-			utilisateur.setFournisseur(fournisseur);
-		}else if(utilisateur.getType()==TypeUtilisateur.ADMINISTRATEUR) {
-			Administrateur administrateur = new Administrateur();
-			administrateur=administrateurRepo.save(administrateur);
-			utilisateur.setAdministrateur(administrateur);
+	public Boolean verifmdp(@RequestBody Utilisateur utilisateur) {
+		List<Utilisateur> utilisateurs = utilisateurRepo.findAll();
+		if (!utilisateurs.isEmpty()) {
+			for (Utilisateur u : utilisateurs) {
+				if ((u.getMail().contentEquals(utilisateur.getMail())
+						&& (u.getMdp().contentEquals(utilisateur.getMdp())))) {
+					return true;
+				}
 			}
+		}
+		return false;
+	}
+
+	@PostMapping("")
+	@JsonView(Views.ViewUtilisateurWithMdp.class)
+	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
+		if (utilisateur.getType() == TypeUtilisateur.CLIENT) {
+			Client client = new Client();
+			client = clientRepo.save(client);
+			utilisateur.setClient(client);
+		} else if (utilisateur.getType() == TypeUtilisateur.FOURNISSEUR) {
+			Fournisseur fournisseur = new Fournisseur();
+			fournisseur = fournisseurRepo.save(fournisseur);
+			utilisateur.setFournisseur(fournisseur);
+		} else if (utilisateur.getType() == TypeUtilisateur.ADMINISTRATEUR) {
+			Administrateur administrateur = new Administrateur();
+			administrateur = administrateurRepo.save(administrateur);
+			utilisateur.setAdministrateur(administrateur);
+		}
 		utilisateur = utilisateurRepo.save(utilisateur);
+		utilisateur.setMdp("");
 		return utilisateur;
 	}
 
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewUtilisateur.class)
+	@JsonView(Views.ViewUtilisateurWithMdp.class)
 	public Utilisateur update(@RequestBody Utilisateur utilisateur, @PathVariable Long id) {
+		Fournisseur fournisseur = utilisateur.getFournisseur();
+		fournisseur = fournisseurRepo.save(fournisseur);
 		utilisateur = utilisateurRepo.save(utilisateur);
+		utilisateur.setFournisseur(fournisseur);
+		utilisateur.setMdp("");
 		return utilisateur;
 	}
 
