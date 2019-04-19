@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import abeille.cool.model.Administrateur;
+import abeille.cool.model.Client;
 import abeille.cool.model.CommandeFournisseur;
+import abeille.cool.model.Fournisseur;
+import abeille.cool.model.TypeUtilisateur;
+import abeille.cool.model.Utilisateur;
 import abeille.cool.model.Views;
 import abeille.cool.repository.ICommandeFournisseurRepository;
 
@@ -45,6 +50,7 @@ public class CommandeFournisseurRestController {
 		commandeFournisseur = commandeFournisseurRepo.save(commandeFournisseur);
 		return commandeFournisseur;
 	}
+	
 
 	@PutMapping("/{id}")
 	@JsonView(Views.ViewCommandeFournisseur.class)
