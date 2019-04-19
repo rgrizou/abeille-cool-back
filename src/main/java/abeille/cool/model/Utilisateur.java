@@ -25,7 +25,7 @@ public class Utilisateur {
 	@JsonView(Views.ViewCommon.class)
 	private String mail;
 	@Column(length = 50)
-	@JsonView(Views.ViewUtilisateurWithMdp.class)
+	@JsonView(Views.ViewCommon.class)
 	private String mdp;
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20)

@@ -97,7 +97,7 @@ public class UtilisateurRestController {
 	}
 
 	@PostMapping("")
-	@JsonView(Views.ViewUtilisateurWithMdp.class)
+	@JsonView(Views.ViewUtilisateur.class)
 	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
 		if (utilisateur.getType() == TypeUtilisateur.CLIENT) {
 			Client client = new Client();
@@ -113,18 +113,16 @@ public class UtilisateurRestController {
 			utilisateur.setAdministrateur(administrateur);
 		}
 		utilisateur = utilisateurRepo.save(utilisateur);
-		utilisateur.setMdp("");
 		return utilisateur;
 	}
 
 	@PutMapping("/{id}")
-	@JsonView(Views.ViewUtilisateurWithMdp.class)
+	@JsonView(Views.ViewUtilisateur.class)
 	public Utilisateur update(@RequestBody Utilisateur utilisateur, @PathVariable Long id) {
 		Fournisseur fournisseur = utilisateur.getFournisseur();
 		fournisseur = fournisseurRepo.save(fournisseur);
 		utilisateur = utilisateurRepo.save(utilisateur);
 		utilisateur.setFournisseur(fournisseur);
-		utilisateur.setMdp("");
 		return utilisateur;
 	}
 
